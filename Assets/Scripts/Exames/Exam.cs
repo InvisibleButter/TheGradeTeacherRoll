@@ -1,10 +1,12 @@
 using System;
-using System.Threading.Tasks;
+using Exames.Subjects;
+using Exames.Tasks;
 
 namespace Exames
 {
     public class Exam
     {
+        public Subject Subject { get; }
         public byte Grade { get; private set; }
         public Task[] Tasks { get; }
         public event Action<byte> OnGradeChanged;
@@ -12,8 +14,9 @@ namespace Exames
         private bool[] markedTasks;
         private int points;
 
-        public Exam(Task[] tasks)
+        public Exam(Subject subject, Task[] tasks)
         {
+            Subject = subject;
             Tasks = tasks;
             Grade = 0;
             markedTasks = new bool[tasks.Length];

@@ -19,20 +19,27 @@ namespace Exames
             }
 
             _exam = exam;
-            _exam.OnGradeChanged += Render;
-            Render(0);
+            _exam.OnGradeChanged += RenderGrade;
+
+            Render();
         }
 
-        private void Render(byte oldValue)
+        private void Render()
         {
-            display.text = _exam.Grade.ToString();
+            RenderGrade(0);
+
+        }
+        
+        private void RenderGrade(byte oldValue)
+        {
+            display.text = _exam.Grade == 0 ? "" : _exam.Grade.ToString();
         }
 
         private void Clear()
         {
             if (_exam != null)
             {
-                _exam.OnGradeChanged -= Render;
+                _exam.OnGradeChanged -= RenderGrade;
             }
 
             _exam = null;

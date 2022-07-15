@@ -2,7 +2,7 @@ using System;
 
 namespace Exames.Tasks
 {
-    public struct Task : ITask
+    public struct Task
     {
         public string Question { get; }
         public string Answer { get; }
