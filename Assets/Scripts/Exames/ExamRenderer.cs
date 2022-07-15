@@ -21,6 +21,7 @@ namespace Exames
 
             _exam = exam;
             _exam.OnGradeChanged += Render;
+            Render(0);
         }
 
         private void Render(byte oldValue)
