@@ -1,19 +1,52 @@
 using System;
+using System.Threading.Tasks;
 
 namespace Exames
 {
-    public class Exam<T>
+    public class Exam
     {
-        public T Grade { get; private set; }
+        public byte Grade { get; private set; }
+        public Task[] Tasks { get; }
+        public event Action<byte> OnGradeChanged;
+        
+        private bool[] markedTasks;
+        private int points;
 
-        public event Action<T> OnGradeChanged;
-
-        public Exam(T grade)
+        public Exam(Task[] tasks)
         {
-            Grade = grade;
+            Tasks = tasks;
+            Grade = 0;
+            markedTasks = new bool[tasks.Length];
+            points = 0;
         }
 
-        private void SetGrade(T grade)
+        public void MarkTask(int index, bool correct)
+        {
+            var oldDone = markedTasks[index];
+            if (oldDone == correct)
+            {
+                return;
+            }
+
+            if (oldDone)
+            {
+                --points;
+            }
+            else
+            {
+                ++points;
+            }
+
+            markedTasks[index] = correct;
+            RecalculateGrade();
+        }
+
+        private void RecalculateGrade()
+        {
+            SetGrade((byte)((17 - points) / 3));
+        }
+
+        private void SetGrade(byte grade)
         {
             var old = Grade;
             Grade = grade;

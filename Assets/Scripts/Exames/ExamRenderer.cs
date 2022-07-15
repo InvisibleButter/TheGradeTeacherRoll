@@ -1,6 +1,5 @@
 using System;
 using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Exames
@@ -10,9 +9,9 @@ namespace Exames
 
         [SerializeField] private TMPro.TMP_Text display;
 
-        [CanBeNull] private Exam<byte> _exam;
+        [CanBeNull] private Exam _exam;
 
-        public void SetExam(Exam<byte> exam)
+        public void SetExam(Exam exam)
         {
             if (_exam != null)
             {
