@@ -14,9 +14,9 @@ namespace Exames.Subjects
 
         [SerializeField] private TaskTemplate[] _tasks;
 
-        public Task[] TryGenerateUniqueTasks(int amount, System.Random random)
+        public SimpleTask[] TryGenerateUniqueTasks(int amount, System.Random random)
         {
-            var tasks = new Task[amount];
+            var tasks = new SimpleTask[amount];
             var uniqueTasks = Enumerable.Range(0, _tasks.Length).ToList();
             
             for (var i = 0; i < tasks.Length; i++)

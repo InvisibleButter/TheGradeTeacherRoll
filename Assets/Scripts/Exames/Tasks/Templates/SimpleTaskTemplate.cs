@@ -4,12 +4,14 @@ using UnityEngine;
 namespace Exames.Tasks.Templates
 {
     [CreateAssetMenu(fileName = "MultipleAnswer", menuName = "Task", order = 0)]
-    public class MultipleAnswerTaskTemplate : TaskTemplate, ITaskBuildable
+    public class SimpleTaskTemplate : TaskTemplate, ITaskBuildable
     {
         [SerializeField] public string question;
         [SerializeField] public string[] correct;
         [SerializeField] public string[] wrong;
         [SerializeField] public bool balancePool = true;
+
+        public override TaskType Type => TaskType.SINGLE_LINE;
 
         public override string Question => question;
 

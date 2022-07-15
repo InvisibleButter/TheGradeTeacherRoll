@@ -2,14 +2,17 @@ using System;
 
 namespace Exames.Tasks
 {
-    public struct Task
+    public class SimpleTask
     {
         public string Question { get; }
         public string Answer { get; }
         public bool Correct { get; }
+        
+        public TaskType Type { get; }
 
-        public Task(string text, string answer, bool correct)
+        public SimpleTask(TaskType type, string text, string answer, bool correct)
         {
+            Type = type;
             Question = text;
             Answer = answer;
             Correct = correct;

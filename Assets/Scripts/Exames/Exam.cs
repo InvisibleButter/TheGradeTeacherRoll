@@ -8,13 +8,13 @@ namespace Exames
     {
         public Subject Subject { get; }
         public byte Grade { get; private set; }
-        public Task[] Tasks { get; }
+        public SimpleTask[] Tasks { get; }
         public event Action<byte> OnGradeChanged;
         
         private bool[] markedTasks;
         private int points;
 
-        public Exam(Subject subject, Task[] tasks)
+        public Exam(Subject subject, SimpleTask[] tasks)
         {
             Subject = subject;
             Tasks = tasks;

@@ -5,11 +5,11 @@ public class SingeLineTaskViewModel : TaskViewModel
 {
     public TMP_Text AnswerTxt, QuestionTxt;
 
-    public override void Setup(Task task)
+    public override void Setup(SimpleTask simpleTask)
     {
-        base.Setup(task);
+        base.Setup(simpleTask);
 
-        AnswerTxt.text = task.Answer;
-        QuestionTxt.text = task.Question;
+        AnswerTxt.text = simpleTask.Answer;
+        QuestionTxt.text = simpleTask.Question;
     }
 }

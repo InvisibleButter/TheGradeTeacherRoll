@@ -8,11 +8,11 @@ public class TaskViewModel : MonoBehaviour
     public Sprite WrongSprite, CorrectSprite;
 
     private int _correctionIndex;
-    protected Task _currentTask;
+    protected SimpleTask CurrentSimpleTask;
 
-    public virtual void Setup(Task task)
+    public virtual void Setup(SimpleTask simpleTask)
     {
-        _currentTask = task;
+        CurrentSimpleTask = simpleTask;
         _correctionIndex = 0;
         SetCorrection();
     }
