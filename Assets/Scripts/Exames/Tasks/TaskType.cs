@@ -1,6 +1,6 @@
 namespace Exames
 {
-    public enum ExamType
+    public enum TaskType
     {
         SINGLE_LINE,
         IMAGES,
