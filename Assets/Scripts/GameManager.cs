@@ -40,12 +40,13 @@ public class GameManager : MonoBehaviour
    {
       _onRollingDices = true;
       _diceManager.RollDices();
-      _examManager.GenerateNewExams(5);
    }
 
    private void AllDicesRolled()
    {
       _onRollingDices = false;
       Debug.Log("*** all rolled");
+      
+      _examManager.GenerateNewExams(5);
    }
 }
