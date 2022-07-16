@@ -1,8 +1,8 @@
 using System;
+using Currencies;
 using DG.Tweening;
 using Exames;
 using Students;
-using Students.Currencies;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
    private CurrencyManager _currencyManager;
 
    public NameGenerator NameGenerator => _nameGenerator;
+   public CurrencyManager CurrencyManager => _currencyManager;
 
    public int MaxSchoolWeeks = 3;
    public int MaxExams = 10;

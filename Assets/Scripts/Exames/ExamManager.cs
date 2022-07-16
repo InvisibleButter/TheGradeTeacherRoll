@@ -30,6 +30,7 @@ namespace Exames
             }
             
             _random = new Random();
+            renderer.gameObject.SetActive(false);
            //renderer.SetExam(CreateNewExam());
         }
 
@@ -75,6 +76,7 @@ namespace Exames
                 _currentExam = _currentExams.FirstOrDefault(each => !each.IsFinished);
             }
             
+            renderer.gameObject.SetActive(true);
             renderer.SetExam(_currentExam);
 
             _visualExamManager.HideLastExam();
@@ -86,6 +88,7 @@ namespace Exames
             {
                 _currentExam.IsFinished = true;
                 renderer.Clear();
+                renderer.gameObject.SetActive(false);
             }
 
             _currentExam = null;

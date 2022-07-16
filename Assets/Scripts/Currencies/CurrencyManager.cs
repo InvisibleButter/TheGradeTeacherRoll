@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Students.Currencies
+namespace Currencies
 {
     public class CurrencyManager : MonoBehaviour
     {
@@ -77,5 +77,27 @@ namespace Students.Currencies
             PlayerPrefs.SetInt(KEY, Money);
         }
 
+        public static string Display(int amount, int e = 0)
+        {
+            if (amount >= 1000 && e != 4)
+            {
+                return Display(amount / 1000, e + 1);
+            }
+      
+            var suffix = GetEToDisplay(e);
+            return amount + suffix;
+        }
+
+        private static string GetEToDisplay(int e)
+        {
+            return e switch
+            {
+                0 => "",
+                1 => "k",
+                2 => "m",
+                3 => "b",
+                _ => "t"
+            };
+        }
     }
 }
