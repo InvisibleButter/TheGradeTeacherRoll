@@ -24,7 +24,7 @@ namespace Exames
         {
             var index = _random.Next(0, _subjects.Length);
             var subject = _subjects[index];
-            var tasks = subject.TryGenerateUniqueTasks(10, _random);
+            var tasks = subject.TryGenerateUniqueTasks(11, _random);
             return new Exam(subject, tasks);
         }
 

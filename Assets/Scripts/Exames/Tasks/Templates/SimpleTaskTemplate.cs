@@ -1,48 +1,27 @@
-using System.Linq;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Exames.Tasks.Templates
 {
     [CreateAssetMenu(fileName = "TextTask", menuName = "Task/TextTask", order = 0)]
-    public class SimpleTaskTemplate : TaskTemplate, ITaskBuildable
+    public class SimpleTaskTemplate : TaskTemplate
     {
-        [SerializeField] public string question;
-        [SerializeField] public string[] correct;
-        [SerializeField] public string[] wrong;
-        [SerializeField] public bool balancePool = true;
+        public override int MaxPoints => 1;
 
-        public override TaskType Type => TaskType.SINGLE_LINE;
-
-        public override string Question => question;
-
-        public override string[] Wrongs => TryBalance(wrong, correct);
-
-        public override string[] Corrects => TryBalance(correct, wrong);
-
-        private string[] TryBalance(string[] toFill, string[] other)
+        public override ITask Generate(Random random)
         {
-            if (!balancePool)
+            var corrects = TryBalance(base.correct, wrong);
+            var wrongs = TryBalance(wrong, base.correct);
+            var index = random.Next(0, corrects.Length + wrongs.Length);
+
+            var correct = index < corrects.Length;
+            var choosen = correct ? corrects : wrongs;
+            if (!correct)
             {
-                return toFill;
+                index -= corrects.Length;
             }
 
-            if (toFill.Length >= other.Length)
-            {
-                return toFill;
-            }
-
-            string[] balanced = new string[other.Length];
-            int index = 0;
-            for (int i = 0; i < balanced.Length; i++)
-            {
-                balanced[i] = toFill[index];
-                if (++index >= toFill.Length)
-                {
-                    index = 0;
-                }
-            }
-
-            return balanced;
+            return new SimpleTask(TaskType.SINGLE_LINE, question, choosen[index], correct);
         }
     }
 }
