@@ -43,8 +43,6 @@ namespace Exames
             
             CurrentDice = d;
             CurrentDice.IsLocked = true;
-            
-            ExamManager.Instance.FinishExam();
         }
         
         public Exam(Subject subject, ITask[] tasks)

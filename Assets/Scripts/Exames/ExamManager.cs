@@ -13,10 +13,15 @@ namespace Exames
         [SerializeField] private Subject[] _subjects;
         [SerializeField] private ExamRenderer renderer;
         [SerializeField] private VisualExamManager _visualExamManager;
+        [SerializeField] private ExamTimer _timer;
+
+        [SerializeField] private int timerDuration = 120;
 
         private List<Exam> _currentExams;
         private Exam _currentExam;
         private Random _random;
+
+        private bool isFirstThisWeek = true;
         
         private void Awake()
         {
@@ -31,7 +36,19 @@ namespace Exames
             
             _random = new Random();
             renderer.gameObject.SetActive(false);
-           //renderer.SetExam(CreateNewExam());
+            _timer.OnTimerFinish += FinishAll;
+        }
+
+        private void FinishAll()
+        {
+            _currentExams.FindAll(exam => !exam.IsFinished).ForEach(exam =>
+            {
+                var dice = GameManager.Instance.DiceManager.Dices.First(dice => !dice.IsLocked);
+                exam.SetDice(dice);
+                exam.IsFinished = true;
+            });
+            _currentExam = null;
+            FinishExam();
         }
 
         private Exam CreateNewExam()
@@ -80,6 +97,11 @@ namespace Exames
             renderer.SetExam(_currentExam);
 
             _visualExamManager.HideLastExam();
+            if (isFirstThisWeek)
+            {
+                _timer.SetTime(timerDuration);
+                isFirstThisWeek = false;
+            }
         }
 
         public void FinishExam()
@@ -88,22 +110,25 @@ namespace Exames
             {
                 _currentExam.IsFinished = true;
                 renderer.Clear();
-                renderer.gameObject.SetActive(false);
             }
-
+            
+            renderer.gameObject.SetActive(false);
             _currentExam = null;
             
             if (_currentExams.All(each => each.IsFinished))
             {
+                _timer.StopTimer();
+                isFirstThisWeek = true;
                 GameManager.Instance.FinishWeek();
             }
         }
 
         public void SetDice(Dice d)
         {
-            if (_currentExam != null && _currentExam.CanFinish)
+            if (_currentExam is { CanFinish: true })
             {
-                _currentExam.SetDice(d);   
+                _currentExam.SetDice(d);
+                FinishExam();
             }
         }
 

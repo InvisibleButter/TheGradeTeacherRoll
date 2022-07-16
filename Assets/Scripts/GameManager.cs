@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
    public NameGenerator NameGenerator => _nameGenerator;
    public CurrencyManager CurrencyManager => _currencyManager;
 
+   public DiceManager DiceManager => _diceManager;
+
    public int MaxSchoolWeeks = 3;
    public int MaxExams = 10;
    private int _currentWeeksFinished, _yearFinished;
