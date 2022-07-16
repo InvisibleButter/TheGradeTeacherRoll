@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Exames.Subjects;
 using UnityEngine;
 using Random = System.Random;
@@ -7,17 +8,29 @@ namespace Exames
 {
     public class ExamManager : MonoBehaviour
     {
+        public static ExamManager Instance { get; set; }
 
         [SerializeField] private Subject[] _subjects;
         [SerializeField] private ExamRenderer renderer;
         [SerializeField] private VisualExamManager _visualExamManager;
 
+        private List<Exam> _currentExams;
+        private Exam _currentExam;
         private Random _random;
         
         private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+            }
+            
             _random = new Random();
-            renderer.SetExam(CreateNewExam());
+           //renderer.SetExam(CreateNewExam());
         }
 
         private Exam CreateNewExam()
@@ -30,14 +43,41 @@ namespace Exames
 
         public void GenerateNewExams(int amount)
         {
-            List<Exam> es = new List<Exam>();
+            _currentExam = null;
+
+            if (_currentExams == null)
+            {
+                _currentExams = new List<Exam>();
+            }
+            _currentExams.Clear();
+            
             for (int i = 0; i < amount; i++)
             {
                 var exam = CreateNewExam();
-                es.Add(exam);
+                _currentExams.Add(exam);
             }
             
-            _visualExamManager.Setup(es);
+            _visualExamManager.Setup(_currentExams);
+        }
+
+        public void ShowNextExam()
+        {
+            if (_currentExam == null)
+            {
+                _currentExam = _currentExams.FirstOrDefault(each => !each.IsFinished);
+            }
+            else
+            {
+                if (!_currentExam.IsFinished)
+                {
+                    return;
+                }
+                _currentExam = _currentExams.FirstOrDefault(each => !each.IsFinished);
+            }
+            
+            renderer.SetExam(_currentExam);
+
+            _visualExamManager.HideLastExam();
         }
     }
 }

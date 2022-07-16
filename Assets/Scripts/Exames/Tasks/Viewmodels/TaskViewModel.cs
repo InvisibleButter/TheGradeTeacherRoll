@@ -41,7 +41,7 @@ public class TaskViewModel : MonoBehaviour
         _correctionIndex++;
         if (_correctionIndex > 2)
         {
-            _correctionIndex = 0;
+            _correctionIndex = 1;
         }
         SetCorrection();
     }

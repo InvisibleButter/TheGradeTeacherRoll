@@ -32,5 +32,7 @@ namespace Exames.Tasks
                 ++TeacherPoints;
             }
         }
+
+        public bool Marked { get; set; }
     }
 }

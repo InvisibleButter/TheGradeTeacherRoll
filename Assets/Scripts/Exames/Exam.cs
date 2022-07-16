@@ -16,6 +16,21 @@ namespace Exames
         public ITask[] Tasks { get; }
         public event Action<byte> OnGradeChanged;
         public event Action OnPointsChanged;
+        
+        public bool IsFinished { get; set; }
+
+        public bool CanFinished
+        {
+            get
+            {
+                if (Tasks.All(each => each.Marked))
+                {
+                    return true;
+                }
+
+                return false;
+            }
+        }
 
         public Exam(Subject subject, ITask[] tasks)
         {
@@ -31,6 +46,7 @@ namespace Exames
 
         public void MarkTask(ITask task, bool correct)
         {
+            task.Marked = true;
             if (correct)
             {
                 task.AddTeacherPoint();

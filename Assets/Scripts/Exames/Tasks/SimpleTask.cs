@@ -24,6 +24,8 @@ namespace Exames.Tasks
             TeacherPoints = 0;
         }
 
+        public bool Marked { get; set; }
+
         public SimpleTask(TaskType type, string text, string answer, bool correct)
         {
             Type = type;
