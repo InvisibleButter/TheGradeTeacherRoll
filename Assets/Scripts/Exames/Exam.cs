@@ -8,11 +8,15 @@ namespace Exames
     {
         public Subject Subject { get; }
         public byte Grade { get; private set; }
+        public int Points { get; private set; }
+        public int MaxPoints => Tasks.Length;
+        public int RealPoints { get; private set; }
+        public byte RealGrade { get; private set; }
         public SimpleTask[] Tasks { get; }
         public event Action<byte> OnGradeChanged;
+        public event Action OnPointsChanged;
         
         private bool[] markedTasks;
-        private int points;
 
         public Exam(Subject subject, SimpleTask[] tasks)
         {
@@ -20,7 +24,8 @@ namespace Exames
             Tasks = tasks;
             Grade = 0;
             markedTasks = new bool[tasks.Length];
-            points = 0;
+            Points = 0;
+            CalculateRealGrade();
         }
 
         public void MarkTask(int index, bool correct)
@@ -33,27 +38,41 @@ namespace Exames
 
             if (oldDone)
             {
-                --points;
+                --Points;
             }
             else
             {
-                ++points;
+                ++Points;
             }
-
+            
+            OnPointsChanged?.Invoke();
             markedTasks[index] = correct;
-            RecalculateGrade();
+            SetGrade(CalculateGrade(Points));
         }
-
-        private void RecalculateGrade()
-        {
-            SetGrade((byte)((17 - points) / 3));
-        }
-
         private void SetGrade(byte grade)
         {
             var old = Grade;
             Grade = grade;
             OnGradeChanged?.Invoke(old);
         }
+
+        private void CalculateRealGrade()
+        {
+            foreach (var simpleTask in Tasks)
+            {
+                if (simpleTask.Correct)
+                {
+                    ++RealPoints;
+                }
+            }
+
+            RealGrade = CalculateGrade(RealPoints);
+        }
+        
+        private byte CalculateGrade(int points)
+        {
+            return (byte)((MaxPoints + 2 - points) / 3);
+        }
+
     }
 }

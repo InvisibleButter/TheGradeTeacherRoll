@@ -4,13 +4,17 @@ using System.Linq;
 using Exames.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Exames
 {
     public class ExamRenderer : MonoBehaviour
     {
 
-        [SerializeField] private TMPro.TMP_Text display;
+        [FormerlySerializedAs("display")] [SerializeField] private TMPro.TMP_Text gradeDisplay;
+        [SerializeField] private TMPro.TMP_Text subjectDisplay;
+        [SerializeField] private TMPro.TMP_Text nameDisplay;
+        [SerializeField] private TMPro.TMP_Text pointsDisplay;
 
         [CanBeNull] private Exam _exam;
         public List<TaskIdentifier> Tasks = new List<TaskIdentifier>();
@@ -26,6 +30,7 @@ namespace Exames
 
             _exam = exam;
             _exam.OnGradeChanged += RenderGrade;
+            _exam.OnPointsChanged += RenderPoints;
 
             Render();
         }
@@ -33,12 +38,22 @@ namespace Exames
         private void Render()
         {
             RenderGrade(0);
+            RenderPoints();
             RenderTasks();
+            
+            //render subject
+            subjectDisplay.text = _exam.Subject.name;
+            nameDisplay.text = "Leif-Pascal Maxie-Pascal";
+        }
+
+        private void RenderPoints()
+        {
+            pointsDisplay.text = $"{_exam.Points}/{_exam.MaxPoints}";
         }
         
         private void RenderGrade(byte oldValue)
         {
-            display.text = _exam.Grade == 0 ? "" : _exam.Grade.ToString();
+            gradeDisplay.text = _exam.Grade == 0 ? "" : _exam.Grade.ToString();
         }
 
         private void RenderTasks()
