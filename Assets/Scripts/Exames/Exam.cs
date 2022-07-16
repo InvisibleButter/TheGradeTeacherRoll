@@ -19,11 +19,11 @@ namespace Exames
         
         public bool IsFinished { get; set; }
 
-        public bool CanFinished
+        public bool CanFinish
         {
             get
             {
-                if (Tasks.All(each => each.Marked))
+                if (Tasks.All(each => each.Marked) /*&& CurrentDice != null*/)
                 {
                     return true;
                 }
@@ -32,6 +32,21 @@ namespace Exames
             }
         }
 
+        public Dice CurrentDice { get; set; }
+
+        public void SetDice(Dice d)
+        {
+            if (CurrentDice != null)
+            {
+                CurrentDice.IsLocked = false;
+            }
+            
+            CurrentDice = d;
+            CurrentDice.IsLocked = true;
+            
+            ExamManager.Instance.FinishExam();
+        }
+        
         public Exam(Subject subject, ITask[] tasks)
         {
             Subject = subject;

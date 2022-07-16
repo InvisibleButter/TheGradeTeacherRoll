@@ -50,6 +50,7 @@ public class VisualExamManager : MonoBehaviour
             {
                 go.transform.position += new Vector3(0, i * Spacing, 0);
             }
+            
 
             go.transform.eulerAngles += new Vector3(0, Random.Range(-15, 15), 0);
         }

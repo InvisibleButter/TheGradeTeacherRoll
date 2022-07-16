@@ -79,5 +79,22 @@ namespace Exames
 
             _visualExamManager.HideLastExam();
         }
+
+        public void FinishExam()
+        {
+            if (_currentExam != null && _currentExam.CanFinish)
+            {
+                _currentExam.IsFinished = true;
+                renderer.Clear();
+            }
+        }
+
+        public void SetDice(Dice d)
+        {
+            if (_currentExam != null && _currentExam.CanFinish)
+            {
+                _currentExam.SetDice(d);   
+            }
+        }
     }
 }

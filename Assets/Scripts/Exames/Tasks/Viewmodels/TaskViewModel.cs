@@ -17,15 +17,18 @@ public class TaskViewModel : MonoBehaviour
         CurrentExam = exam;
         CurrentTask = simpleTask;
         _correctionIndex = 0;
-        SetCorrection();
+        SetCorrection(false);
     }
 
-    private void SetCorrection()
+    private void SetCorrection(bool update = true)
     {
         if (_correctionIndex == 0)
         {
             CorrectionIcon.gameObject.SetActive(false);
-            CurrentExam.MarkTask(CurrentTask, false);
+            if(update)
+            {
+                CurrentExam.MarkTask(CurrentTask, false);
+            }
         }
         else
         {

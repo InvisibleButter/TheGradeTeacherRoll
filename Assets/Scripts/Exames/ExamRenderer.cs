@@ -69,7 +69,7 @@ namespace Exames
             }
         }
         
-        private void Clear()
+        public void Clear()
         {
             if (_exam != null)
             {
