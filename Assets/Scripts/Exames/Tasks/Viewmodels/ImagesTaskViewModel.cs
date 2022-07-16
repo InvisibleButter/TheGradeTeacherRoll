@@ -8,12 +8,12 @@ public class ImagesTaskViewModel : TaskViewModel
    public Image Icon;
    public TMP_Text Question, Answer;
    
-   public override void Setup(Exam exam, int index, SimpleTask task)
+   public override void Setup(Exam exam, ITask task)
    {
-      base.Setup(exam, index, task);
+      base.Setup(exam, task);
 
       Question.text = task.Question;
-      Answer.text = task.Answer;
+      Answer.text = task.Answers[0];
       
       //todo load icon from ressource
    }

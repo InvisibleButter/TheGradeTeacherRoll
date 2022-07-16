@@ -2,20 +2,35 @@ using System;
 
 namespace Exames.Tasks
 {
-    public class SimpleTask
+    public class SimpleTask : ITask
     {
         public string Question { get; }
-        public string Answer { get; }
-        public bool Correct { get; }
+
+        public string[] Answers { get; }
+        public int RightPoints { get; }
         
+        public int MaxPoints { get; }
+
         public TaskType Type { get; }
+        
+        public int TeacherPoints { get; private set; }
+        public void AddTeacherPoint()
+        {
+            TeacherPoints = 1;
+        }
+
+        public void RemoveTeacherPoint()
+        {
+            TeacherPoints = 0;
+        }
 
         public SimpleTask(TaskType type, string text, string answer, bool correct)
         {
             Type = type;
             Question = text;
-            Answer = answer;
-            Correct = correct;
+            Answers = new []{answer};
+            RightPoints = correct ? 1 : 0;
+            MaxPoints = 1;
         }
     }
 }
