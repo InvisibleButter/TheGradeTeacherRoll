@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8697653809226824818}
   - component: {fileID: 8697653809226824820}
   - component: {fileID: 8697653809226824819}
+  - component: {fileID: 7223126770840005377}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   _subjects:
   - {fileID: 11400000, guid: 0e2845450d8be0d448cf60a5b3a53bde, type: 2}
   renderer: {fileID: 0}
+  _visualExamManager: {fileID: 7223126770840005377}
 --- !u!114 &8697653809226824820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,4 +78,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _diceManager: {fileID: 8697653809226824820}
+  _examManager: {fileID: 8697653809226824818}
   MaxSchoolWeeks: 3
+--- !u!114 &7223126770840005377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697653809226824816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a786ae1d9f72934a8c8d4e81296eb83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExamVisualPrefab: {fileID: 8972738362478206126, guid: c78632a748409d3408392b6127886d75,
+    type: 3}
+  ExamsHolder: {fileID: 0}
+  Spacing: 5
