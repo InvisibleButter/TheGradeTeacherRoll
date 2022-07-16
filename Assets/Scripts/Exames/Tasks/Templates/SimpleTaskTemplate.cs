@@ -10,16 +10,10 @@ namespace Exames.Tasks.Templates
 
         public override ITask Generate(Random random)
         {
-            var corrects = TryBalance(base.correct, wrong);
-            var wrongs = TryBalance(wrong, base.correct);
-            var index = random.Next(0, corrects.Length + wrongs.Length);
-
-            var correct = index < corrects.Length;
-            var choosen = correct ? corrects : wrongs;
-            if (!correct)
-            {
-                index -= corrects.Length;
-            }
+            var correct = random.Next(0, 100) <= geniusSCore;
+            
+            var choosen = correct ? base.correct : wrong;
+            var index = random.Next(0, choosen.Length);
 
             return new SimpleTask(TaskType.SINGLE_LINE, question, choosen[index], correct);
         }

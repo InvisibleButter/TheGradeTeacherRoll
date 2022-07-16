@@ -16,7 +16,7 @@ namespace Exames
         
         private void Awake()
         {
-            _random = new Random(119);
+            _random = new Random();
             renderer.SetExam(CreateNewExam());
         }
 

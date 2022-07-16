@@ -8,22 +8,16 @@ namespace Exames.Tasks.Templates
     public class GabTextTaskTemplate : TaskTemplate
     {
         public override int MaxPoints => correct.Length;
-        protected override bool IsBalanceAble => false;
         public override ITask Generate(Random random)
         {
-            var rightPoints = random.Next(0, MaxPoints);
-            var pattern = Enumerable.Repeat(false, MaxPoints).ToArray();
-            for (var i = 0; i < rightPoints; i++)
-            {
-                pattern[i] = true;
-            }
-            Shuffle(pattern, random);
-
             var answers = new string[MaxPoints];
+            var correctCount = 0;
             for (var i = 0; i < answers.Length; i++)
             {
-                if (pattern[i])
+                var isCorrect = random.Next(0, 100) < geniusSCore;
+                if (isCorrect)
                 {
+                    ++correctCount;
                     answers[i] = correct[i];
                 }
                 else
@@ -32,7 +26,7 @@ namespace Exames.Tasks.Templates
                 }
             }
 
-            return new MultiPointTask(question, answers, rightPoints, MaxPoints, TaskType.GAP_TEXT);
+            return new MultiPointTask(question, answers, correctCount, MaxPoints, TaskType.GAP_TEXT);
         }
     }
 }
