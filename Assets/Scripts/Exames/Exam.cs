@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Exames.Subjects;
 using Exames.Tasks;
 
@@ -9,46 +10,73 @@ namespace Exames
         public Subject Subject { get; }
         public byte Grade { get; private set; }
         public int Points { get; private set; }
-        public int MaxPoints => Tasks.Length;
+        public int MaxPoints { get; }
         public int RealPoints { get; private set; }
         public byte RealGrade { get; private set; }
-        public SimpleTask[] Tasks { get; }
+        public ITask[] Tasks { get; }
         public event Action<byte> OnGradeChanged;
         public event Action OnPointsChanged;
         
-        private bool[] markedTasks;
+        public bool IsFinished { get; set; }
 
-        public Exam(Subject subject, SimpleTask[] tasks)
+        public bool CanFinish
+        {
+            get
+            {
+                if (Tasks.All(each => each.Marked) /*&& CurrentDice != null*/)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
+        public Dice CurrentDice { get; set; }
+
+        public void SetDice(Dice d)
+        {
+            if (CurrentDice != null)
+            {
+                CurrentDice.IsLocked = false;
+            }
+            
+            CurrentDice = d;
+            CurrentDice.IsLocked = true;
+            
+            ExamManager.Instance.FinishExam();
+        }
+        
+        public Exam(Subject subject, ITask[] tasks)
         {
             Subject = subject;
             Tasks = tasks;
             Grade = 0;
-            markedTasks = new bool[tasks.Length];
             Points = 0;
+
+            MaxPoints = Tasks.Sum(task => task.MaxPoints);
+            
             CalculateRealGrade();
         }
 
-        public void MarkTask(int index, bool correct)
+        public void MarkTask(ITask task, bool correct)
         {
-            var oldDone = markedTasks[index];
-            if (oldDone == correct)
+            task.Marked = true;
+            if (correct)
             {
-                return;
-            }
-
-            if (oldDone)
-            {
-                --Points;
+                task.AddTeacherPoint();
             }
             else
             {
-                ++Points;
+                task.RemoveTeacherPoint();
             }
+
+            Points = Tasks.Sum(task => task.TeacherPoints);
             
             OnPointsChanged?.Invoke();
-            markedTasks[index] = correct;
             SetGrade(CalculateGrade(Points));
         }
+        
         private void SetGrade(byte grade)
         {
             var old = Grade;
@@ -60,9 +88,9 @@ namespace Exames
         {
             foreach (var simpleTask in Tasks)
             {
-                if (simpleTask.Correct)
+                if (simpleTask.RightPoints > 0)
                 {
-                    ++RealPoints;
+                    RealPoints += Points;
                 }
             }
 

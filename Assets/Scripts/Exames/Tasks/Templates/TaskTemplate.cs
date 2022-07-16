@@ -1,13 +1,17 @@
 using UnityEngine;
+using Random = System.Random;
 
 namespace Exames.Tasks.Templates
 {
-    public abstract class TaskTemplate : ScriptableObject, ITaskBuildable
+    public abstract class TaskTemplate : ScriptableObject
     {
-        private ITaskBuildable _taskBuildableImplementation;
-        public abstract string Question { get; }
-        public abstract string[] Corrects { get; }
-        public abstract string[] Wrongs { get; }
-        public abstract TaskType Type { get; }
+        [SerializeField] protected string question;
+        [SerializeField] protected string[] correct;
+        [SerializeField] protected string[] wrong;
+        [SerializeField] protected int geniusSCore = 50;
+
+        public abstract int MaxPoints { get; }
+
+        public abstract ITask Generate(Random random);
     }
 }

@@ -43,7 +43,7 @@ namespace Exames
             
             //render subject
             subjectDisplay.text = _exam.Subject.name;
-            nameDisplay.text = "Leif-Pascal Maxie-Pascal";
+            nameDisplay.text = GameManager.Instance.NameGenerator.GetName();
         }
 
         private void RenderPoints()
@@ -61,15 +61,15 @@ namespace Exames
             _tasks = new List<GameObject>();
             for (int i = 0; i < _exam.Tasks.Length; i++)
             {
-                SimpleTask task = _exam.Tasks[i];
+                ITask task = _exam.Tasks[i];
                 GameObject go = Instantiate(Tasks.First(each => each.Type == task.Type).Prefab, TasksHolder.transform);
                 TaskViewModel vm = go.GetComponent<TaskViewModel>();
-                vm.Setup(_exam, i, task);
+                vm.Setup(_exam, task);
                 _tasks.Add(go);
             }
         }
         
-        private void Clear()
+        public void Clear()
         {
             if (_exam != null)
             {

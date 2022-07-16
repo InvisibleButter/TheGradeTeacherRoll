@@ -3,6 +3,7 @@ using System.Linq;
 using Exames.Tasks;
 using Exames.Tasks.Templates;
 using UnityEngine;
+using ITask = Exames.Tasks.ITask;
 
 namespace Exames.Subjects
 {
@@ -16,12 +17,12 @@ namespace Exames.Subjects
 
         public Color Color => color;
         
-        public SimpleTask[] TryGenerateUniqueTasks(int amount, System.Random random)
+        public ITask[] TryGenerateUniqueTasks(int points, System.Random random)
         {
-            var tasks = new SimpleTask[amount];
+            var tasks = new List<ITask>();
             var uniqueTasks = Enumerable.Range(0, _tasks.Length).ToList();
-            
-            for (var i = 0; i < tasks.Length; i++)
+
+            while (points > 0)
             {
                 if (uniqueTasks.Count == 0)
                 {
@@ -31,11 +32,18 @@ namespace Exames.Subjects
                 var index = random.Next(0, uniqueTasks.Count);
                 var template = _tasks[uniqueTasks[index]];
                 uniqueTasks.RemoveAt(index);
+
+                if (template.MaxPoints > points)
+                {
+                    continue;
+                }
+
+                points -= template.MaxPoints;
                 
-                tasks[i] = TaskFactory.Generate(template, random);
+                tasks.Add(template.Generate(random));   
             }
 
-            return tasks;
+            return tasks.ToArray();
         }
     }
 }

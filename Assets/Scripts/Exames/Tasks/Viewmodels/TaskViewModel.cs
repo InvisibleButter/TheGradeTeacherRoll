@@ -9,31 +9,32 @@ public class TaskViewModel : MonoBehaviour
     public Sprite WrongSprite, CorrectSprite;
 
     private int _correctionIndex;
-    protected SimpleTask CurrentSimpleTask;
+    protected ITask CurrentTask;
     private Exam CurrentExam;
-    private int taskId;
 
-    public virtual void Setup(Exam exam, int index, SimpleTask simpleTask)
+    public virtual void Setup(Exam exam, ITask simpleTask)
     {
         CurrentExam = exam;
-        CurrentSimpleTask = simpleTask;
-        taskId = index;
+        CurrentTask = simpleTask;
         _correctionIndex = 0;
-        SetCorrection();
+        SetCorrection(false);
     }
 
-    private void SetCorrection()
+    private void SetCorrection(bool update = true)
     {
         if (_correctionIndex == 0)
         {
             CorrectionIcon.gameObject.SetActive(false);
-            CurrentExam.MarkTask(taskId, false);
+            if(update)
+            {
+                CurrentExam.MarkTask(CurrentTask, false);
+            }
         }
         else
         {
             CorrectionIcon.gameObject.SetActive(true);
             var correct = _correctionIndex == 1;
-            CurrentExam.MarkTask(taskId, correct);
+            CurrentExam.MarkTask(CurrentTask, correct);
             CorrectionIcon.sprite = correct ? CorrectSprite : WrongSprite;
         }
     }
@@ -43,7 +44,7 @@ public class TaskViewModel : MonoBehaviour
         _correctionIndex++;
         if (_correctionIndex > 2)
         {
-            _correctionIndex = 0;
+            _correctionIndex = 1;
         }
         SetCorrection();
     }

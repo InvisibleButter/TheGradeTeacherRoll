@@ -1,5 +1,10 @@
+using System;
+using Exames;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
 
 public class Dice : MonoBehaviour
 {
@@ -10,6 +15,20 @@ public class Dice : MonoBehaviour
     float ROTATION_THRESHOLD = 0.1f;
     public int result = 0;
     public UnityEvent<Dice> diceRollFinishedEvent;
+
+    private bool _isLocked;
+
+    public bool IsLocked
+    {
+        get => _isLocked;
+        set
+        {
+            _isLocked = value;
+            
+            //todo just testing, later material or something
+            transform.parent.gameObject.SetActive(!value);
+        }
+    }
 
     private void Awake()
     {
@@ -39,8 +58,6 @@ public class Dice : MonoBehaviour
 
     private int checkResults()
     {
-
-        
         float up = Mathf.Abs(transform.up.y-Vector3.up.y);
         float forward = Mathf.Abs(transform.forward.y-Vector3.up.y);
         float right = Mathf.Abs(transform.right.y - Vector3.up.y);
@@ -57,5 +74,14 @@ public class Dice : MonoBehaviour
         return 0;
      
 
+    }
+
+    private void OnMouseDown()
+    {
+        if (!IsLocked)
+        {
+            Debug.Log("** set dice");
+            ExamManager.Instance.SetDice(this);
+        }
     }
 }
