@@ -18,6 +18,8 @@ public class DiceManager : MonoBehaviour
     //maybe event later
     public bool rollingFinished = false;
 
+    public event Action OnAllDicesRolled;
+    
     private void Start()
     {
         _diceAmount = StartDiceAmount;
@@ -54,5 +56,10 @@ public class DiceManager : MonoBehaviour
         _finishedDice++;
         rollingFinished = (_finishedDice == _diceAmount);
         Debug.Log("FINISHED");
+
+        if (rollingFinished)
+        {
+            OnAllDicesRolled.Invoke();
+        }
     }
 }

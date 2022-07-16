@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,9 +11,9 @@ public class Dice : MonoBehaviour
     public int result = 0;
     public UnityEvent diceRollFinishedEvent;
 
-    private void Start()
+    private void Awake()
     {
-        rigid = this.GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
     }
 
     public void RollDice()
