@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using Exames;
 using UnityEngine;
 
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
 
    private void Start()
    {
+      DOTween.Init();
       _gameStarted = true;
       _diceManager.OnAllDicesRolled += AllDicesRolled;
       StartCorrectionPhase();

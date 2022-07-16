@@ -1,6 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,9 @@ public class DiceManager : MonoBehaviour
     public int StartDiceAmount = 10;
     
     private List<Dice> _dices = new List<Dice>();
+
+    public List<Transform> DicePositions = new List<Transform>();
+    private Dictionary<int, bool> _freePositions = new Dictionary<int, bool>();
 
     private int _diceAmount;
     private int _finishedDice;
@@ -39,13 +43,24 @@ public class DiceManager : MonoBehaviour
 
     public void RollDices()
     {
-        for(int i=0;i<_diceAmount;i++)
+        if (_dices.Count != _diceAmount)
         {
-            Dice dice = Instantiate(DiceDummyPrefab,spawnPosition.position,spawnPosition.rotation,spawnPosition).GetComponentInChildren<Dice>();
-            dice.diceRollFinishedEvent = new UnityEvent();
-            dice.diceRollFinishedEvent.AddListener(DiceFinished);
-            _dices.Add(dice);
+            int diff = _diceAmount - _dices.Count;
+            for(int i=0;i<diff;i++)
+            {
+                Dice dice = Instantiate(DiceDummyPrefab,spawnPosition.position,spawnPosition.rotation,spawnPosition).GetComponentInChildren<Dice>();
+                dice.diceRollFinishedEvent = new UnityEvent<Dice>();
+                dice.diceRollFinishedEvent.AddListener(DiceFinished);
+                _dices.Add(dice);
+            }
         }
+
+        _freePositions.Clear();
+        for (int i = 0; i < DicePositions.Count; i++)
+        {
+            _freePositions.Add(i, true);
+        }
+        
         
         for (int i = 0; i < _diceAmount; i++)
         {
@@ -63,15 +78,27 @@ public class DiceManager : MonoBehaviour
         _dices.Add(dice);
     }
 
-    public void DiceFinished()
+    public void DiceFinished(Dice d)
     {
         _finishedDice++;
         rollingFinished = (_finishedDice == _diceAmount);
+
+        Vector3 targetPos = GetEmptyPlace();
+        d.transform.position = targetPos;
+        //todo make it work
+        //d.transform.parent.DOMove(targetPos, 2f);
         Debug.Log("FINISHED");
 
         if (rollingFinished)
         {
             OnAllDicesRolled.Invoke();
         }
+    }
+
+    private Vector3 GetEmptyPlace()
+    {
+        int index = _freePositions.First(each => each.Value).Key;
+        _freePositions[index] = false;
+        return DicePositions[index].position;
     }
 }

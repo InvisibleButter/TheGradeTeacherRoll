@@ -9,7 +9,7 @@ public class Dice : MonoBehaviour
     float VELOCITY_THRESHOLDE=0.1f;
     float ROTATION_THRESHOLD = 0.1f;
     public int result = 0;
-    public UnityEvent diceRollFinishedEvent;
+    public UnityEvent<Dice> diceRollFinishedEvent;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class Dice : MonoBehaviour
                 isFinished = true;
                 result = checkResults();
                 //Brennen verhindern
-                diceRollFinishedEvent.Invoke();
+                diceRollFinishedEvent.Invoke(this);
             }
         }
     }
