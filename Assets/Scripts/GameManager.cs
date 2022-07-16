@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using Exames;
 using Students;
+using Students.Currencies;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -14,7 +15,11 @@ public class GameManager : MonoBehaviour
    [SerializeField] 
    private ExamManager _examManager;
 
-   [SerializeField] private NameGenerator _nameGenerator;
+   [SerializeField]
+   private NameGenerator _nameGenerator;
+   
+   [SerializeField]
+   private CurrencyManager _currencyManager;
 
    public NameGenerator NameGenerator => _nameGenerator;
 
@@ -55,6 +60,12 @@ public class GameManager : MonoBehaviour
       _examManager.GenerateNewExams(MaxExams);
    }
 
+   public void FinishWeek()
+   {
+      _currencyManager.Add(_currencyManager.WeeklySalery);
+      //TODO progress ui
+      StartNextWeek();
+   }
    public void StartNextWeek()
    {
       _currentWeeksFinished++;

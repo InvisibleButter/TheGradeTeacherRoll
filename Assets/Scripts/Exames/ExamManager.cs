@@ -92,7 +92,7 @@ namespace Exames
             
             if (_currentExams.All(each => each.IsFinished))
             {
-                GameManager.Instance.StartNextWeek();
+                GameManager.Instance.FinishWeek();
             }
         }
 
