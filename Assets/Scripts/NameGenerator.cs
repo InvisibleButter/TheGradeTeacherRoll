@@ -20,7 +20,7 @@ public class NameGenerator : MonoBehaviour
 
         public string GetName()
         {
-	        return firstNames[_random.Next(firstNames.Length)] + " " + lastNames[_random.Next(lastNames.Length)];
+	        return firstNames[_random.Next(0, firstNames.Length)] + " " + lastNames[_random.Next(0, lastNames.Length)];
         }
 	}
 }
