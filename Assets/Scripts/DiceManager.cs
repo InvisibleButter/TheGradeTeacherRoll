@@ -17,7 +17,7 @@ public class DiceManager : MonoBehaviour
 
     //maybe event later
     public bool rollingFinished = false;
-
+    public Transform spawnPosition;
     public event Action OnAllDicesRolled;
     
     private void Start()
@@ -25,7 +25,7 @@ public class DiceManager : MonoBehaviour
         _diceAmount = StartDiceAmount;
         for(int i=0;i<_diceAmount;i++)
         {
-            Dice dice = Instantiate(DiceDummyPrefab,transform).GetComponentInChildren<Dice>();
+            Dice dice = Instantiate(DiceDummyPrefab,spawnPosition.position,spawnPosition.rotation,spawnPosition).GetComponentInChildren<Dice>();
             dice.diceRollFinishedEvent = new UnityEvent();
             dice.diceRollFinishedEvent.AddListener(DiceFinished);
             _dices.Add(dice);
@@ -46,7 +46,7 @@ public class DiceManager : MonoBehaviour
     public void AddDice()
     {
         _diceAmount++;
-        Dice dice = Instantiate(DiceDummyPrefab, transform).GetComponent<Dice>();
+        Dice dice = Instantiate(DiceDummyPrefab, spawnPosition.position, spawnPosition.rotation, spawnPosition).GetComponent<Dice>();
         dice.diceRollFinishedEvent.AddListener(DiceFinished);
         _dices.Add(dice);
     }
