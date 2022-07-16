@@ -96,5 +96,10 @@ namespace Exames
                 _currentExam.SetDice(d);   
             }
         }
+
+        public void ShowDiceVal(Dice d, bool b)
+        {
+            renderer.ShowDiceGrade(b, d.result);
+        }
     }
 }

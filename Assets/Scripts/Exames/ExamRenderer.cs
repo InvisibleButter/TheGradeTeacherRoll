@@ -19,6 +19,8 @@ namespace Exames
         [CanBeNull] private Exam _exam;
         public List<TaskIdentifier> Tasks = new List<TaskIdentifier>();
         public GameObject TasksHolder;
+        public TMPro.TMP_Text DiceGrade;
+        
         private List<GameObject> _tasks;
 
         public void SetExam(Exam exam)
@@ -83,6 +85,12 @@ namespace Exames
 
             _tasks.Clear();
             _exam = null;
+        }
+
+        public void ShowDiceGrade(bool show, int val)
+        {
+            DiceGrade.transform.parent.gameObject.SetActive(show);
+            DiceGrade.text = val.ToString();
         }
 
         [Serializable]

@@ -51,7 +51,17 @@ public class Dice : MonoBehaviour
                 isFinished = true;
                 result = checkResults();
                 //Brennen verhindern
-                diceRollFinishedEvent.Invoke(this);
+
+                if (result == 0)
+                {
+                    Debug.LogWarning("** ich bin ne 0");
+                    RollDice();
+                }
+                else
+                {
+                    diceRollFinishedEvent.Invoke(this);
+                }
+                
             }
         }
     }
@@ -80,8 +90,20 @@ public class Dice : MonoBehaviour
     {
         if (!IsLocked)
         {
-            Debug.Log("** set dice");
             ExamManager.Instance.SetDice(this);
         }
+    }
+
+    private void OnMouseEnter()
+    {
+        if (!_isLocked)
+        {
+            ExamManager.Instance.ShowDiceVal(this, true);
+        }
+    }
+    
+    private void OnMouseExit()
+    {
+        ExamManager.Instance.ShowDiceVal(this, false);
     }
 }
