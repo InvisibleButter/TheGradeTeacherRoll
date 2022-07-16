@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a35687337e9cf7c44955f7e80f8db094
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Vatteny Rose
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e2a669fbf6c43c847b1b8016b898531b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
