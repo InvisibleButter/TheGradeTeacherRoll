@@ -64,6 +64,9 @@ public class DiceManager : MonoBehaviour
         
         for (int i = 0; i < _diceAmount; i++)
         {
+            // _dices[i].transform.parent.transform.position = spawnPosition.position;
+            // _dices[i].transform.parent.transform.rotation = spawnPosition.rotation;
+            
             _dices[i].RollDice();
         }
         rollingFinished = false;
@@ -84,7 +87,8 @@ public class DiceManager : MonoBehaviour
         rollingFinished = (_finishedDice == _diceAmount);
 
         Vector3 targetPos = GetEmptyPlace();
-        d.transform.position = targetPos;
+       
+        d.SetToSLot(targetPos);
         //todo make it work
         //d.transform.parent.DOMove(targetPos, 2f);
         Debug.Log("FINISHED");

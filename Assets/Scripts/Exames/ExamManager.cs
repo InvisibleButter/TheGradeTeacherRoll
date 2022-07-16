@@ -88,6 +88,8 @@ namespace Exames
                 renderer.Clear();
             }
 
+            _currentExam = null;
+            
             if (_currentExams.All(each => each.IsFinished))
             {
                 GameManager.Instance.StartNextWeek();
