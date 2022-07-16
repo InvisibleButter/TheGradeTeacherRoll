@@ -12,5 +12,7 @@ namespace Exames.Tasks
         public int TeacherPoints { get; }
         public void AddTeacherPoint();
         public void RemoveTeacherPoint();
+        
+        public bool Marked { get; set; }
     }
 }
