@@ -17,29 +17,24 @@ namespace Exames
         private void Awake()
         {
             _random = new Random(119);
-            CreateNewExam();
+            renderer.SetExam(CreateNewExam());
         }
 
-        public void CreateNewExam()
+        private Exam CreateNewExam()
         {
             var index = _random.Next(0, _subjects.Length);
             var subject = _subjects[index];
-            var tasks = subject.TryGenerateUniqueTasks(3, _random);
-            var exam = new Exam(subject, tasks);
-            renderer.SetExam(exam);
+            var tasks = subject.TryGenerateUniqueTasks(10, _random);
+            return new Exam(subject, tasks);
         }
 
-        public void GenerateNewExams()
+        public void GenerateNewExams(int amount)
         {
             List<Exam> es = new List<Exam>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < amount; i++)
             {
-                var index = _random.Next(0, _subjects.Length);
-                var subject = _subjects[index];
-                var tasks = subject.TryGenerateUniqueTasks(3, _random);
-                var exam = new Exam(subject, tasks);
+                var exam = CreateNewExam();
                 es.Add(exam);
-                //renderer.SetExam(exam);
             }
             
             _visualExamManager.Setup(es);

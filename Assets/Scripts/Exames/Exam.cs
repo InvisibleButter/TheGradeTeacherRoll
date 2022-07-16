@@ -71,7 +71,14 @@ namespace Exames
         
         private byte CalculateGrade(int points)
         {
-            return (byte)((MaxPoints + 2 - points) / 3);
+            if (points == MaxPoints)
+            {
+                return 1;
+            }
+            var switzerGrade = (double)points * 5 / (MaxPoints + 1);
+            var rounded = (int)Math.Floor(switzerGrade);
+            var germanGrade = rounded - 6;
+            return (byte)Math.Abs(germanGrade);
         }
 
     }

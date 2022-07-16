@@ -36,6 +36,6 @@ public class GameManager : MonoBehaviour
    private void StartCorrectionPhase()
    {
       _diceManager.RollDices();
-      _examManager.GenerateNewExams();
+      _examManager.GenerateNewExams(5);
    }
 }
