@@ -87,6 +87,11 @@ namespace Exames
                 _currentExam.IsFinished = true;
                 renderer.Clear();
             }
+
+            if (_currentExams.All(each => each.IsFinished))
+            {
+                GameManager.Instance.StartNextWeek();
+            }
         }
 
         public void SetDice(Dice d)

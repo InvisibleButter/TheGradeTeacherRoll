@@ -37,6 +37,8 @@ public class Dice : MonoBehaviour
 
     public void RollDice()
     {
+        IsLocked = false;
+        
         rigid.AddForce(new Vector3(Random.Range(-100,100), 300, Random.Range(-100, 100)));
         rigid.AddTorque(new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100)));
         isFinished = false;
@@ -91,6 +93,7 @@ public class Dice : MonoBehaviour
         if (!IsLocked)
         {
             ExamManager.Instance.SetDice(this);
+            ExamManager.Instance.ShowDiceVal(this, false);
         }
     }
 
