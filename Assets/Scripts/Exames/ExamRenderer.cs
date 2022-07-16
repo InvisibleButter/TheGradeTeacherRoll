@@ -43,7 +43,7 @@ namespace Exames
             
             //render subject
             subjectDisplay.text = _exam.Subject.name;
-            nameDisplay.text = "Leif-Pascal Maxie-Pascal";
+            nameDisplay.text = GameManager.Instance.NameGenerator.GetName();
         }
 
         private void RenderPoints()

@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using Exames;
+using Students;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,10 @@ public class GameManager : MonoBehaviour
 
    [SerializeField] 
    private ExamManager _examManager;
+
+   [SerializeField] private NameGenerator _nameGenerator;
+
+   public NameGenerator NameGenerator => _nameGenerator;
 
    public int MaxSchoolWeeks = 3;
    private int _currentWeeksFinished;
