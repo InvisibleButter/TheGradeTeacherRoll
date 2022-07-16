@@ -1,4 +1,5 @@
 using System;
+using Exames;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +8,9 @@ public class GameManager : MonoBehaviour
 
    [SerializeField]
    private DiceManager _diceManager;
+
+   [SerializeField] 
+   private ExamManager _examManager;
 
    public int MaxSchoolWeeks = 3;
    private int _currentWeeksFinished;
@@ -26,11 +30,12 @@ public class GameManager : MonoBehaviour
 
    private void Start()
    {
-      
+      StartCorrectionPhase();
    }
 
    private void StartCorrectionPhase()
    {
       _diceManager.RollDices();
+      _examManager.GenerateNewExams();
    }
 }

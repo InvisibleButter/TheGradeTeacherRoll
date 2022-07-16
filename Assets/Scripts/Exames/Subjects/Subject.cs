@@ -14,6 +14,8 @@ namespace Exames.Subjects
 
         [SerializeField] private TaskTemplate[] _tasks;
 
+        public Color Color => color;
+        
         public SimpleTask[] TryGenerateUniqueTasks(int amount, System.Random random)
         {
             var tasks = new SimpleTask[amount];
