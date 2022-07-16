@@ -64,7 +64,7 @@ namespace Exames
                 SimpleTask task = _exam.Tasks[i];
                 GameObject go = Instantiate(Tasks.First(each => each.Type == task.Type).Prefab, TasksHolder.transform);
                 TaskViewModel vm = go.GetComponent<TaskViewModel>();
-                vm.Setup(task);
+                vm.Setup(_exam, i, task);
                 _tasks.Add(go);
             }
         }

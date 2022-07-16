@@ -1,3 +1,4 @@
+using Exames;
 using Exames.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,10 +10,14 @@ public class TaskViewModel : MonoBehaviour
 
     private int _correctionIndex;
     protected SimpleTask CurrentSimpleTask;
+    private Exam CurrentExam;
+    private int taskId;
 
-    public virtual void Setup(SimpleTask simpleTask)
+    public virtual void Setup(Exam exam, int index, SimpleTask simpleTask)
     {
+        CurrentExam = exam;
         CurrentSimpleTask = simpleTask;
+        taskId = index;
         _correctionIndex = 0;
         SetCorrection();
     }
@@ -22,11 +27,14 @@ public class TaskViewModel : MonoBehaviour
         if (_correctionIndex == 0)
         {
             CorrectionIcon.gameObject.SetActive(false);
+            CurrentExam.MarkTask(taskId, false);
         }
         else
         {
             CorrectionIcon.gameObject.SetActive(true);
-            CorrectionIcon.sprite = _correctionIndex == 1 ? CorrectSprite : WrongSprite;
+            var correct = _correctionIndex == 1;
+            CurrentExam.MarkTask(taskId, correct);
+            CorrectionIcon.sprite = correct ? CorrectSprite : WrongSprite;
         }
     }
     
