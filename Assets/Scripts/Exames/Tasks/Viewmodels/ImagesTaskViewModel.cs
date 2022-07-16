@@ -8,7 +8,7 @@ public class ImagesTaskViewModel : TaskViewModel
    public Image Icon;
    public TMP_Text Question, Answer;
    
-   public override void Setup(Task task)
+   public override void Setup(SimpleTask task)
    {
       base.Setup(task);
 

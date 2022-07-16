@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Exames.Tasks.Templates
 {
-    [CreateAssetMenu(fileName = "MultipleAnswer", menuName = "Task", order = 0)]
+    [CreateAssetMenu(fileName = "ImageTask", menuName = "Task/ImageTask", order = 0)]
     public class SimpleImageTaskTemplate : SimpleTaskTemplate
     {
 

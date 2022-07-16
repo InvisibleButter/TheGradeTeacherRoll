@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Exames.Tasks.Templates
 {
-    [CreateAssetMenu(fileName = "MultipleAnswer", menuName = "Task", order = 0)]
+    [CreateAssetMenu(fileName = "TextTask", menuName = "Task/TextTask", order = 0)]
     public class SimpleTaskTemplate : TaskTemplate, ITaskBuildable
     {
         [SerializeField] public string question;
@@ -36,7 +36,7 @@ namespace Exames.Tasks.Templates
             for (int i = 0; i < balanced.Length; i++)
             {
                 balanced[i] = toFill[index];
-                if (index++ >= toFill.Length)
+                if (++index >= toFill.Length)
                 {
                     index = 0;
                 }
