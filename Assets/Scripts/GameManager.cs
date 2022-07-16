@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
    public int MaxSchoolWeeks = 3;
    private int _currentWeeksFinished;
    private int _currenTestPhasesFinished;
-   
+   private bool _onRollingDices, _gameStarted;
+
    private void Awake()
    {
       if (Instance != null && Instance != this)
@@ -30,12 +31,21 @@ public class GameManager : MonoBehaviour
 
    private void Start()
    {
+      _gameStarted = true;
+      _diceManager.OnAllDicesRolled += AllDicesRolled;
       StartCorrectionPhase();
    }
 
    private void StartCorrectionPhase()
    {
+      _onRollingDices = true;
       _diceManager.RollDices();
       _examManager.GenerateNewExams(5);
+   }
+
+   private void AllDicesRolled()
+   {
+      _onRollingDices = false;
+      Debug.Log("*** all rolled");
    }
 }
