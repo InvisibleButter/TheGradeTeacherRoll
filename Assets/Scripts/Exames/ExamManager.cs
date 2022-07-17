@@ -53,7 +53,7 @@ namespace Exames
 
         private Exam CreateNewExam()
         {
-            var index = _random.Next(0, _subjects.Length);
+            var index = _random.Next(0, Mathf.Min(GameManager.Instance.SubjectsForYearCount, _subjects.Length));
             var subject = _subjects[index];
             var tasks = subject.TryGenerateUniqueTasks(11, _random);
             return new Exam(subject, tasks);
