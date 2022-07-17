@@ -20,6 +20,9 @@ namespace Exames
         public event Action OnPointsChanged;
         
         public TMP_FontAsset  AnswerFont { get; private set; }
+        
+        public Sprite CorrectSprite { get; private set; }
+        public Sprite WrongSprite { get; private set; }
         public bool IsFinished { get; set; }
 
         public bool CanFinish
@@ -58,6 +61,8 @@ namespace Exames
             MaxPoints = Tasks.Sum(task => task.MaxPoints);
 
             AnswerFont = FontManager.Instance.GenerateFont();
+            CorrectSprite = FontManager.Instance.GetCorrectSprite();
+            WrongSprite = FontManager.Instance.GetWrongSprite();
             
             CalculateRealGrade();
         }

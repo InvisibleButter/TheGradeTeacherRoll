@@ -17,12 +17,18 @@ public class TaskViewModel : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private bool _isHovered;
     public Image BaseImg;
 
+    private Sprite _correctSprite, _wrongSprite;
+    
     public virtual void Setup(Exam exam, ITask simpleTask)
     {
         CurrentExam = exam;
         CurrentTask = simpleTask;
         _correctionIndex = 0;
         BaseImg.color = DefaultCol;
+
+        _correctSprite = CurrentExam.CorrectSprite != null ? CurrentExam.CorrectSprite : CorrectSprite;
+        _wrongSprite = CurrentExam.WrongSprite != null ? CurrentExam.WrongSprite : WrongSprite;
+        
         SetCorrection(false);
     }
 
@@ -41,7 +47,7 @@ public class TaskViewModel : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             CorrectionIcon.gameObject.SetActive(true);
             var correct = _correctionIndex == 1;
             CurrentExam.MarkTask(CurrentTask, correct);
-            CorrectionIcon.sprite = correct ? CorrectSprite : WrongSprite;
+            CorrectionIcon.sprite = correct ? _correctSprite : _wrongSprite;
         }
     }
 
