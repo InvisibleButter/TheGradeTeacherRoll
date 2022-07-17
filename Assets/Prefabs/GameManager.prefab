@@ -1348,8 +1348,54 @@ MonoBehaviour:
   - "J\xF6rg"
   - Alexander
   - Matthias
+  - Otto
+  - Ludwig
+  - Wilhelm
+  - Friedrich
+  - Albert
+  - Johann
+  - Ernst
+  - Werner
+  - Kurt
+  - Dieter
+  - "J\xFCrgen"
+  - Herbert
+  - Paul
+  - Max
+  - Fritz
+  - Heinz
+  - Willi
+  - Hugo
+  - Josef
+  - Karl
+  - Arthur
+  - Emil
+  - Alfred
+  - Franz
+  - Bernhard
+  - Erich
+  - Rudolf
+  - Horst
+  - Walter
+  - Albert
+  - Joachim
+  - Siegfried
+  - Rudi
+  - Heiner
+  - Gerhard
+  - Uwe
+  - Martin
   lastNames:
   - "M\xFCller"
+  - Schmidt
+  - Schneider
+  - Fischer
+  - Weber
+  - Meyer
+  - Wagner
+  - Becker
+  - Schulz
+  - Hoffmann
 --- !u!1 &9140362761422891105
 GameObject:
   m_ObjectHideFlags: 0
