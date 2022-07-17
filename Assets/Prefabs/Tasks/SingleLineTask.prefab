@@ -55,14 +55,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127382931168480688}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127382931168480688}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc6403acaa992a248a5413dee18b4bcd, type: 3}
   m_Name: 
@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9811321, g: 0.763617, b: 0.763617, a: 1}
+  m_Color: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -535,5 +535,8 @@ MonoBehaviour:
   CorrectionIcon: {fileID: 5380620285747042818}
   WrongSprite: {fileID: 21300000, guid: ea0d0cda55cbb5d4a8938919d2b1e4cd, type: 3}
   CorrectSprite: {fileID: 21300000, guid: 0e1c3584ffaaa8c489110f1d5fcbc4a6, type: 3}
+  DefaultCol: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
+  HighlightedCol: {r: 0.9647059, g: 0.972549, b: 0.5921569, a: 1}
+  BaseImg: {fileID: 1029576832267926082}
   AnswerTxt: {fileID: 7934591578227064628}
   QuestionTxt: {fileID: 1014533659414973759}
