@@ -9,6 +9,9 @@ public class WackyHandMovement : MonoBehaviour
     public Transform offset;
     Vector3 startPosition;
     float MAX_ARMLENGTH = 100;
+    public float y=400;
+    public float chainLength;
+    public Transform anker;
 
     private void Awake()
     {
@@ -22,9 +25,12 @@ public class WackyHandMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (plane.Raycast(ray, out distance))
         {
-            Vector3 newPos = ray.GetPoint(distance)+offset.position;
-            if(Vector3.Distance(newPos,startPosition)<MAX_ARMLENGTH)
-                rigid.MovePosition(new Vector3(newPos.x, transform.position.y, newPos.z));
+            Vector3 newPos = ray.GetPoint(distance);
+            offset.position = new Vector3(newPos.x,y , newPos.z);
+            rigid.transform.LookAt(new Vector3(newPos.x,y, newPos.z));
+            rigid.transform.Rotate(new Vector3(90,0,0));
+            //if(Vector3.Distance(offset.position, anker.position)>chainLength)
+                rigid.MovePosition(offset.position);
         }
     }
 }
