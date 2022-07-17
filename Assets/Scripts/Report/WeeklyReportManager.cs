@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using Exames;
 using Exames.Subjects;
 using Strikes;
@@ -15,6 +14,7 @@ namespace Report
         private static WeeklyReportManager INSTANCE;
 
         [SerializeField] private GameObject WeeklyReportPrefab;
+        [SerializeField] private Transform holder;
 
         private GameObject curreentReport;
         private WeeklyReport currentWeeklyReport;
@@ -49,7 +49,7 @@ namespace Report
             currentWeeklyReport = new WeeklyReport(currentWeeksFinished, maxSchoolWeeks, correctionRate, gradeCorrectionRate,
                 currencyManagerWeeklySalery, 0);
             
-            curreentReport = Instantiate(WeeklyReportPrefab);
+            curreentReport = Instantiate(WeeklyReportPrefab, Vector3.zero, Quaternion.identity, holder);
             WeeklyReportRenderer _renderer = curreentReport.GetComponent<WeeklyReportRenderer>();
             
             _renderer.Display(currentWeeklyReport);

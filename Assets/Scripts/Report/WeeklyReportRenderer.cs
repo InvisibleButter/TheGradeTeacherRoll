@@ -21,6 +21,7 @@ namespace Report
 
         public void Display(WeeklyReport report)
         {
+            return;
             subjectHolder.gameObject.SetActive(false);
             weekDisplay.text = $"{report.Week}/{report.MaxWeek}";
             correctionRateDisplay.text = $"{report.CorrectionRate} %";
@@ -31,12 +32,14 @@ namespace Report
 
         public void DisplayNewSubject(Subject newSubject)
         {
+            return;
             subjectHolder.SetActive(true);
             subjectDisplay.text = newSubject.name;
         }
 
         public void DisplayNewStrike()
         {
+            return;
             strikeHolder.SetActive(true);
         }
     }
