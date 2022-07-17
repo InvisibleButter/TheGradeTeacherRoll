@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856a92afe23c4da689ca3c66ce18b561, type: 3}
+  m_Name: Chemistry
+  m_EditorClassIdentifier: 
+  name: Chemistry
+  color: {r: 1, g: 1, b: 1, a: 0}
+  _tasks:
+  - {fileID: 11400000, guid: 6b22299744b2d37478df8e3fa824f79c, type: 2}
+  - {fileID: 11400000, guid: f53bb53983915064e860b7f88295fe6e, type: 2}
+  - {fileID: 11400000, guid: 6c9fbfbf519c68049b856673591e7735, type: 2}
+  - {fileID: 11400000, guid: b187b52c77c22ab4db945607b79cd922, type: 2}
+  - {fileID: 11400000, guid: 695c3517b0a77d94c82389215d5ce802, type: 2}
+  - {fileID: 11400000, guid: b166d4442fce8814ba4855858c001def, type: 2}
+  - {fileID: 11400000, guid: 76c675db55826c145a001d125a762dec, type: 2}
+  - {fileID: 11400000, guid: 72863bad078d2e54daa7c63ac630ead0, type: 2}
+  - {fileID: 11400000, guid: 5bc2de42c18f1be4892b9415671d8f25, type: 2}
+  - {fileID: 11400000, guid: 067164ea28e8ae14cb789ae3270da308, type: 2}
+  - {fileID: 11400000, guid: f0c6ab3d6606a1d4c9250706bd691e98, type: 2}
+  - {fileID: 11400000, guid: 4fd9df5ed83c62c408c02dc1c5b5d28b, type: 2}
+  - {fileID: 11400000, guid: 6c91f469e6594494f985e6dd68ac446a, type: 2}
+  - {fileID: 11400000, guid: e5515629a0fa5a64d9bc6b47919717c3, type: 2}
+  - {fileID: 11400000, guid: bad82a70a7bc4ca4f9f69e2ca78265be, type: 2}
+  - {fileID: 11400000, guid: 9f795399dd9b726469de27c9f498b3f8, type: 2}
+  - {fileID: 11400000, guid: 76176ee60f92b0746b8ff8b80646cbbb, type: 2}
+  - {fileID: 11400000, guid: 12f661b376a5c53469929851fd51fe68, type: 2}
+  - {fileID: 11400000, guid: f9c1d20ec29fed54f9bd1c219bdec11c, type: 2}
+  - {fileID: 11400000, guid: 041bc07266fabe5449074654067350f6, type: 2}
+  - {fileID: 11400000, guid: 35503d3eda5b4e240ab0395b4473ad12, type: 2}
