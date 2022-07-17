@@ -98,7 +98,7 @@ namespace Exames
             {
                 if (simpleTask.RightPoints > 0)
                 {
-                    RealPoints += Points;
+                    RealPoints += simpleTask.RightPoints;
                 }
             }
 
