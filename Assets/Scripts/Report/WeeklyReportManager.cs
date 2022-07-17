@@ -74,8 +74,8 @@ namespace Report
             var maxPoints = exams.Sum(exam => exam.MaxPoints);
             var correctCorrectedPoints = exams.Sum(exam => Math.Abs(exam.RealPoints - exam.Points));
 
-            var correctionRate = correctCorrectedPoints / maxPoints * 100;
-            return correctionRate;
+            var correctionRate = (double)correctCorrectedPoints / maxPoints * 100;
+            return (int)correctionRate;
         }
 
         private static int CalculateGradeCorrectionRate(IReadOnlyCollection<Exam> exams)
@@ -83,8 +83,8 @@ namespace Report
             var maxGradeOffsetSum = 5 * exams.Count;
             var gradeOffsetSum = exams.Sum(exam => Math.Abs(exam.Grade - exam.RealGrade));
             
-            var gradeCorrectionRate = (maxGradeOffsetSum - gradeOffsetSum) / maxGradeOffsetSum * 100;
-            return gradeCorrectionRate;
+            var gradeCorrectionRate = (double)(maxGradeOffsetSum - gradeOffsetSum) / maxGradeOffsetSum * 100;
+            return (int)gradeCorrectionRate;
         }
     }
 }

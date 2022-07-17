@@ -46,7 +46,7 @@ namespace Report
             Briebe = briebe;
             CorrectGradeRate = correctGradeRate;
 
-            IsStrike = CorrectGradeRate <= 50 || CorrectionRate <= 40;
+            IsStrike = CorrectGradeRate <= 30;
         }
     }
 }
