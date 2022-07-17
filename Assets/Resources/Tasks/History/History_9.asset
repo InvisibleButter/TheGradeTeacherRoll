@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2e833bc9274a6ba009244c73b6572e, type: 3}
   m_Name: History_9
   m_EditorClassIdentifier: 
-  question: The Thirty Years' War was a series of wars in {0} between {1} and {2}
+  question: The Thirty Years' War was a series of wars in {0} between {1} and {2}.
   correct:
   - Central Europe
   - 1618

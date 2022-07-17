@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952719d630aa4e1da88b6b159bfa26c6, type: 3}
   m_Name: History_7
   m_EditorClassIdentifier: 
-  question: When did the US enter Word War II
+  question: When did the US enter Word War II?
   correct:
   - December 8, 1941
   wrong:

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952719d630aa4e1da88b6b159bfa26c6, type: 3}
   m_Name: History_5
   m_EditorClassIdentifier: 
-  question: When was the civil war
+  question: When was the civil war?
   correct:
   - from 1861 to 1865
   wrong:

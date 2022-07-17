@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952719d630aa4e1da88b6b159bfa26c6, type: 3}
   m_Name: History_6
   m_EditorClassIdentifier: 
-  question: When did the french revolution begin
+  question: When did the french revolution begin?
   correct:
   - 1789
   wrong:
