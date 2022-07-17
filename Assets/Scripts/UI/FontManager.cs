@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ public class FontManager : MonoBehaviour
     public static FontManager Instance { get; set; }
     
     public List<TMP_FontAsset > Fonts = new List<TMP_FontAsset >();
+
+    public List<Sprite> CorrectSprites = new List<Sprite>();
+    public List<Sprite> WrongSprites = new List<Sprite>();
 
     private void Awake()
     {
@@ -24,5 +28,22 @@ public class FontManager : MonoBehaviour
     public TMP_FontAsset  GenerateFont()
     {
         return Fonts[Random.Range(0, Fonts.Count)];
+    }
+
+    public Sprite GetCorrectSprite()
+    {
+        if (!CorrectSprites.Any())
+        {
+            return null;
+        }
+        return CorrectSprites[Random.Range(0, CorrectSprites.Count)];
+    } 
+    public Sprite GetWrongSprite()
+    {
+        if (!WrongSprites.Any())
+        {
+            return null;
+        }
+        return WrongSprites[Random.Range(0, CorrectSprites.Count)];
     }
 }

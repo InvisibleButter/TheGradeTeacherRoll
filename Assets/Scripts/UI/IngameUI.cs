@@ -23,7 +23,7 @@ public class IngameUI : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.Instance.PauseGame();
+            GameManager.Instance.PauseGame(true);
             _isOpen = true;
             IngamePanel.gameObject.SetActive(true);
         }
@@ -36,7 +36,7 @@ public class IngameUI : MonoBehaviour
 
     public void Resume()
     {
-        GameManager.Instance.PauseGame();
+        GameManager.Instance.PauseGame(false);
         IngamePanel.gameObject.SetActive(false);
         _isOpen = false;
     }

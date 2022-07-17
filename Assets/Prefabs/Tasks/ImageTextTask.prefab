@@ -101,17 +101,17 @@ PrefabInstance:
     - target: {fileID: 1029576832267926082, guid: f555252a485cd9b44bac24953e8e23e0,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.8980392
       objectReference: {fileID: 0}
     - target: {fileID: 1029576832267926082, guid: f555252a485cd9b44bac24953e8e23e0,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.6763973
+      value: 0.8980392
       objectReference: {fileID: 0}
     - target: {fileID: 1029576832267926082, guid: f555252a485cd9b44bac24953e8e23e0,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.6179246
+      value: 0.8980392
       objectReference: {fileID: 0}
     - target: {fileID: 1903431328628275024, guid: f555252a485cd9b44bac24953e8e23e0,
         type: 3}
@@ -286,6 +286,9 @@ MonoBehaviour:
   CorrectionIcon: {fileID: 592306975213509856}
   WrongSprite: {fileID: 21300000, guid: ea0d0cda55cbb5d4a8938919d2b1e4cd, type: 3}
   CorrectSprite: {fileID: 21300000, guid: 0e1c3584ffaaa8c489110f1d5fcbc4a6, type: 3}
+  DefaultCol: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
+  HighlightedCol: {r: 0.9647059, g: 0.972549, b: 0.5921569, a: 0}
+  BaseImg: {fileID: 5537821183781502112}
   Icon: {fileID: 1053262609267942210}
   Question: {fileID: 5514615235530165213}
   Answer: {fileID: 3210737412827740630}
@@ -299,6 +302,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5537821183781502112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1029576832267926082, guid: f555252a485cd9b44bac24953e8e23e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4797320595838650082}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4482129010478934980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &6411394272806580658 stripped

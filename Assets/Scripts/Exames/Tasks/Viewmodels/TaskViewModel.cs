@@ -1,9 +1,10 @@
 using Exames;
 using Exames.Tasks;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TaskViewModel : MonoBehaviour
+public class TaskViewModel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Image CorrectionIcon; 
     public Sprite WrongSprite, CorrectSprite;
@@ -11,13 +12,23 @@ public class TaskViewModel : MonoBehaviour
     private int _correctionIndex;
     protected ITask CurrentTask;
     private Exam CurrentExam;
-    
 
+    public Color DefaultCol, HighlightedCol;
+    private bool _isHovered;
+    public Image BaseImg;
+
+    private Sprite _correctSprite, _wrongSprite;
+    
     public virtual void Setup(Exam exam, ITask simpleTask)
     {
         CurrentExam = exam;
         CurrentTask = simpleTask;
         _correctionIndex = 0;
+        BaseImg.color = DefaultCol;
+
+        _correctSprite = CurrentExam.CorrectSprite != null ? CurrentExam.CorrectSprite : CorrectSprite;
+        _wrongSprite = CurrentExam.WrongSprite != null ? CurrentExam.WrongSprite : WrongSprite;
+        
         SetCorrection(false);
     }
 
@@ -36,7 +47,7 @@ public class TaskViewModel : MonoBehaviour
             CorrectionIcon.gameObject.SetActive(true);
             var correct = _correctionIndex == 1;
             CurrentExam.MarkTask(CurrentTask, correct);
-            CorrectionIcon.sprite = correct ? CorrectSprite : WrongSprite;
+            CorrectionIcon.sprite = correct ? _correctSprite : _wrongSprite;
         }
     }
 
@@ -58,5 +69,31 @@ public class TaskViewModel : MonoBehaviour
             _correctionIndex = 1;
         }
         SetCorrection();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!_isHovered)
+        {
+            _isHovered = true;
+            BaseImg.color = HighlightedCol;
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (_isHovered)
+        {
+            _isHovered = false;
+            BaseImg.color = DefaultCol;
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (_isHovered)
+        {
+            SetCorrectionVal(eventData.button == PointerEventData.InputButton.Left);
+        }
     }
 }
