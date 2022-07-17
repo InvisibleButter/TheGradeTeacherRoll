@@ -1431,7 +1431,7 @@ MonoBehaviour:
   renderer: {fileID: 0}
   _visualExamManager: {fileID: 7223126770840005377}
   _timer: {fileID: 0}
-  timerDuration: 120
+  timerDuration: 60
 --- !u!114 &8697653809226824820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DiceDummyPrefab: {fileID: 8442017298068107267, guid: b4967d641f84bd54fb2d497a984b4b5b,
     type: 3}
-  StartDiceAmount: 10
+  StartDiceAmount: 3
   DicePositions:
   - {fileID: 673441298564279320}
   - {fileID: 846275640915372350}
@@ -1478,8 +1478,8 @@ MonoBehaviour:
   _currencyManager: {fileID: 5739251793275676022}
   _weeklyReportManager: {fileID: 4618716343819470339}
   _cameraController: {fileID: 0}
-  MaxSchoolWeeks: 3
-  MaxExams: 10
+  MaxSchoolWeeks: 2
+  MaxExams: 3
 --- !u!114 &7223126770840005377
 MonoBehaviour:
   m_ObjectHideFlags: 0
