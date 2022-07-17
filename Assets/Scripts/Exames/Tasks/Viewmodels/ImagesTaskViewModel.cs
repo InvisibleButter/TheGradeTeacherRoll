@@ -14,7 +14,7 @@ public class ImagesTaskViewModel : TaskViewModel
 
       Question.text = task.Question;
       Answer.text = task.Answers[0];
-      
-      //todo load icon from ressource
+
+      Icon.sprite = (task as SimpleImageTask).Image;
    }
 }
