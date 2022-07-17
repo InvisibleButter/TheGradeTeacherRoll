@@ -11,6 +11,11 @@ namespace Strikes
 
         [SerializeField]
         private GameObject[] blueLetters;
+
+        [SerializeField] private GameObject lastLetter;
+
+        [SerializeField]
+        private Transform lastLetterHolder;
         
         private int strikes = 0;
 
@@ -41,6 +46,13 @@ namespace Strikes
             }
             blueLetters[strikes].SetActive(true);
             ++strikes;
+        }
+
+        public void GiveLastLetter()
+        {
+            var gameObject = Instantiate(lastLetter, lastLetterHolder);
+            var letter = gameObject.GetComponent<letterAnimatorScript>();
+            letter.OpenLetter();
         }
     }
 }
