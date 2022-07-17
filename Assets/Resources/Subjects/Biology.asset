@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856a92afe23c4da689ca3c66ce18b561, type: 3}
+  m_Name: Biology
+  m_EditorClassIdentifier: 
+  name: Biology
+  color: {r: 0.072312206, g: 0.6132076, b: 0.10632218, a: 0}
+  _tasks:
+  - {fileID: 11400000, guid: 2016407f8e8866e4681ceb1fd16874da, type: 2}
+  - {fileID: 11400000, guid: 6e3fcef90a413f44f9ab6c4add58e505, type: 2}
+  - {fileID: 11400000, guid: b88643de9591dcb4ead7ced6ea0215cf, type: 2}
+  - {fileID: 11400000, guid: 7df1367f27392834bac466645b931a4a, type: 2}
+  - {fileID: 11400000, guid: 21ff012ed5c897e4daa26cb54e4dae80, type: 2}
+  - {fileID: 11400000, guid: 5212ed14ae7af1a49b8570d1e2ca9bc6, type: 2}
+  - {fileID: 11400000, guid: 51199cf94d7b4e14f87b7f685bb60487, type: 2}
+  - {fileID: 11400000, guid: 6fcb19f3ee1bde74ca1c64cf72499019, type: 2}
+  - {fileID: 11400000, guid: d57e5ec30ad7d9f49a96d16689021309, type: 2}
+  - {fileID: 11400000, guid: 45c5110b026255046813949037ef79c6, type: 2}
+  - {fileID: 11400000, guid: c57691fafc6449049b39dcc897b7f172, type: 2}

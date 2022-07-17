@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856a92afe23c4da689ca3c66ce18b561, type: 3}
+  m_Name: Geography
+  m_EditorClassIdentifier: 
+  name: Geography
+  color: {r: 0.3018868, g: 0.13243146, b: 0.13243146, a: 0}
+  _tasks:
+  - {fileID: 11400000, guid: 7372cf47fc29fd64283ffd98b6a02a1e, type: 2}
+  - {fileID: 11400000, guid: f2c26c7a89332a34381b6144a1110ff4, type: 2}
+  - {fileID: 11400000, guid: 89d9b94bdacc10240a2c6b0bb6f83fc7, type: 2}
+  - {fileID: 11400000, guid: 27f48297ae3aabd45b46639cc251bb4f, type: 2}
+  - {fileID: 11400000, guid: 6477f8b2562f802449e99c840c10eadc, type: 2}
+  - {fileID: 11400000, guid: c334750d4e2a3c9418683b3412e0de9e, type: 2}
+  - {fileID: 11400000, guid: 18255bf7a689cba4f9676be41eddb160, type: 2}
+  - {fileID: 11400000, guid: 0c04a01c671215d4fbc3c4530b2b2eec, type: 2}
+  - {fileID: 11400000, guid: 78ca6f87ef73c944a9d98de01e5a79b2, type: 2}
+  - {fileID: 11400000, guid: 6272f9d54c57505489d71ff0d9820d37, type: 2}
+  - {fileID: 11400000, guid: 080de9d46c6eff94089809b7588372c5, type: 2}
+  - {fileID: 11400000, guid: b8c75a467aed9694d989df582a0fdc4b, type: 2}
+  - {fileID: 11400000, guid: 3683317ccb3ed8c40961d742a02014c6, type: 2}
+  - {fileID: 11400000, guid: 0a4b0d0cb4fca9b4988036e77f2e8e2d, type: 2}
+  - {fileID: 11400000, guid: 3418699682e5bb14bba74bd8f595c289, type: 2}
+  - {fileID: 11400000, guid: d9f4ef815517bc5408d2f8f50a9ea121, type: 2}
+  - {fileID: 11400000, guid: 37209079da895e94cb220e0eb6205212, type: 2}
+  - {fileID: 11400000, guid: f6608f308b88e2147aa0794e72600647, type: 2}

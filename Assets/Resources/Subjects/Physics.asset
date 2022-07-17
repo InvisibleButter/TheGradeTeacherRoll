@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856a92afe23c4da689ca3c66ce18b561, type: 3}
+  m_Name: Physics
+  m_EditorClassIdentifier: 
+  name: Physics
+  color: {r: 1, g: 0.9561809, b: 0, a: 0}
+  _tasks:
+  - {fileID: 11400000, guid: f5f99b4c6658e0e4394bbb9865eb9901, type: 2}
+  - {fileID: 11400000, guid: eb2a680771252074e942d02894e8e9f2, type: 2}
+  - {fileID: 11400000, guid: 879b57f64edcf154eb7541c9c872adcf, type: 2}
+  - {fileID: 11400000, guid: 0c4f914357a42984b833ca81c5b99621, type: 2}
+  - {fileID: 11400000, guid: 2fbc2bd4878ecdd4ab436ec6f24a396a, type: 2}
+  - {fileID: 11400000, guid: eb88bb355900d4b46b9d5cc07a5151a2, type: 2}
+  - {fileID: 11400000, guid: 64778310214b0b04194d613865c22d5e, type: 2}
+  - {fileID: 11400000, guid: 64778310214b0b04194d613865c22d5e, type: 2}
+  - {fileID: 11400000, guid: f1484e85824d3cd40bb9137f34d1165b, type: 2}
+  - {fileID: 11400000, guid: 460d48ed522cc534382794d4d4ba5f6f, type: 2}
+  - {fileID: 11400000, guid: d38eda67dc8fdb84dbb9f65344dc0789, type: 2}
+  - {fileID: 11400000, guid: f8dac43e3fb0c554b94eee15a8d97dff, type: 2}
+  - {fileID: 11400000, guid: 785e2c1ea6cfe0a43966a1da4cf367a2, type: 2}
+  - {fileID: 11400000, guid: dfb9f942cc151a748a86d43a287e4ab7, type: 2}
+  - {fileID: 11400000, guid: 1199bc4e3b820ad45be60a3a104c8934, type: 2}
+  - {fileID: 11400000, guid: f0c3f29570f27104bab79c24b7443da5, type: 2}
+  - {fileID: 11400000, guid: ef1f420cea28b984faa4eee0b993b57a, type: 2}
+  - {fileID: 11400000, guid: 95df058c439a5e74bbce7f9ed6cf0cec, type: 2}
+  - {fileID: 11400000, guid: d6168f03f36e7a345b8e159374751476, type: 2}

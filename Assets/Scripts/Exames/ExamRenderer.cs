@@ -27,7 +27,7 @@ namespace Exames
         {
             if (_exam != null)
             {
-                throw new Exception("Exam already set!");
+                Clear();
             }
 
             _exam = exam;
@@ -45,6 +45,8 @@ namespace Exames
             
             //render subject
             subjectDisplay.text = _exam.Subject.name;
+
+            nameDisplay.font = _exam.AnswerFont;
             nameDisplay.text = GameManager.Instance.NameGenerator.GetName();
         }
 
@@ -76,6 +78,7 @@ namespace Exames
             if (_exam != null)
             {
                 _exam.OnGradeChanged -= RenderGrade;
+                _exam.OnPointsChanged -= RenderPoints;
             }
 
             foreach (var task in _tasks)

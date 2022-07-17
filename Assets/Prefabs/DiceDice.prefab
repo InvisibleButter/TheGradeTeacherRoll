@@ -135,3 +135,13 @@ MonoBehaviour:
   diceRollFinishedEvent:
     m_PersistentCalls:
       m_Calls: []
+  DefaultCol: {r: 1, g: 1, b: 1, a: 1}
+  HighlighedCol: {r: 0.9056604, g: 0.58217025, b: 0.08116765, a: 1}
+  LockedCOl: {r: 0.41509432, g: 0.40530434, b: 0.40530434, a: 1}
+  Renderer: {fileID: 8061834631872316991}
+--- !u!23 &8061834631872316991 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7635826562936255635, guid: 1614c858db9903e44b52bef8536315ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 8784688685120507218}
+  m_PrefabAsset: {fileID: 0}

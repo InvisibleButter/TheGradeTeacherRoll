@@ -1218,6 +1218,7 @@ GameObject:
   - component: {fileID: 8697653809226824819}
   - component: {fileID: 7223126770840005377}
   - component: {fileID: 5138717239274755126}
+  - component: {fileID: 2618302019675624975}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1255,8 +1256,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _subjects:
   - {fileID: 11400000, guid: 0e2845450d8be0d448cf60a5b3a53bde, type: 2}
+  - {fileID: 11400000, guid: a714d28863627d84fa7bb31dfcb765a4, type: 2}
+  - {fileID: 11400000, guid: 308e92d922e0e5742a0414cbb5fd74d2, type: 2}
+  - {fileID: 11400000, guid: e55b9cc1c2ce315468e985e62f587a0e, type: 2}
+  - {fileID: 11400000, guid: 3f4d5a23704b62042b73883a574481dd, type: 2}
+  - {fileID: 11400000, guid: 8e2d12f7b4947fa4aa522453999a4594, type: 2}
   renderer: {fileID: 0}
   _visualExamManager: {fileID: 7223126770840005377}
+  _timer: {fileID: 0}
+  timerDuration: 120
 --- !u!114 &8697653809226824820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,7 +1308,9 @@ MonoBehaviour:
   _diceManager: {fileID: 8697653809226824820}
   _examManager: {fileID: 8697653809226824818}
   _nameGenerator: {fileID: 5138717239274755126}
+  _currencyManager: {fileID: 0}
   MaxSchoolWeeks: 3
+  MaxExams: 10
 --- !u!114 &7223126770840005377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,8 +1339,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36701302f6a27345b8ae8fd8cceb90a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstNames: []
-  lastNames: []
+  firstNames:
+  - Hans
+  - Peter
+  - Klaus
+  - Thomas
+  - Markus
+  - Stefan
+  - "J\xF6rg"
+  - Alexander
+  - Matthias
+  - Otto
+  - Ludwig
+  - Wilhelm
+  - Friedrich
+  - Albert
+  - Johann
+  - Ernst
+  - Werner
+  - Kurt
+  - Dieter
+  - "J\xFCrgen"
+  - Herbert
+  - Paul
+  - Max
+  - Fritz
+  - Heinz
+  - Willi
+  - Hugo
+  - Josef
+  - Karl
+  - Arthur
+  - Emil
+  - Alfred
+  - Franz
+  - Bernhard
+  - Erich
+  - Rudolf
+  - Horst
+  - Walter
+  - Albert
+  - Joachim
+  - Siegfried
+  - Rudi
+  - Heiner
+  - Gerhard
+  - Uwe
+  - Martin
+  lastNames:
+  - "M\xFCller"
+  - Schmidt
+  - Schneider
+  - Fischer
+  - Weber
+  - Meyer
+  - Wagner
+  - Becker
+  - Schulz
+  - Hoffmann
+  - "Schr\xF6der"
+  - Koch
+  - Bauer
+  - Richter
+  - Klein
+  - Wolf
+  - Schrader
+  - Krause
+  - Jung
+  - Haas
+  - "G\xFCnther"
+  - Jansen
+  - Diekmann
+  - Weinberg
+  - Pfeiffer
+  - "V\xF6lcker"
+  - Bernhardt
+  - Scholz
+  - Bader
+  - Engel
+  - Conrad
+  - "D\xF6ring"
+  - Kraft
+  - Peters
+  - Schuhmacher
+  - Ulrich
+  - Kaiser
+  - Lange
+  - Lindemann
+  - Marx
+  - Schmitz
+  - Vogel
+--- !u!114 &2618302019675624975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697653809226824816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c0dded3b96892149b09447cb055c2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fonts:
+  - {fileID: 11400000, guid: 95d520d45d572dc41b770a46fc43e038, type: 2}
+  - {fileID: 11400000, guid: 2c400ba7c4e85174a81bff4c8f90054b, type: 2}
+  - {fileID: 11400000, guid: 2b75aa4c2a0356e4c888e6b74c5e18f6, type: 2}
+  - {fileID: 11400000, guid: d1bf82b8da672d84a95c2cc21e25d5a8, type: 2}
+  - {fileID: 11400000, guid: c90bbeb0934dcec469ff3e3bff306e0b, type: 2}
 --- !u!1 &9140362761422891105
 GameObject:
   m_ObjectHideFlags: 0

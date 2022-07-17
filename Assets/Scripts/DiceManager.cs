@@ -24,6 +24,8 @@ public class DiceManager : MonoBehaviour
     public Transform spawnPosition;
     public event Action OnAllDicesRolled;
 
+    public List<Dice> Dices => _dices;
+    
     private void Awake()
     {
         _diceAmount = StartDiceAmount;

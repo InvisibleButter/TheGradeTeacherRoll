@@ -2,6 +2,8 @@ using System;
 using System.Linq;
 using Exames.Subjects;
 using Exames.Tasks;
+using TMPro;
+using UnityEngine;
 
 namespace Exames
 {
@@ -17,6 +19,7 @@ namespace Exames
         public event Action<byte> OnGradeChanged;
         public event Action OnPointsChanged;
         
+        public TMP_FontAsset  AnswerFont { get; private set; }
         public bool IsFinished { get; set; }
 
         public bool CanFinish
@@ -43,8 +46,6 @@ namespace Exames
             
             CurrentDice = d;
             CurrentDice.IsLocked = true;
-            
-            ExamManager.Instance.FinishExam();
         }
         
         public Exam(Subject subject, ITask[] tasks)
@@ -55,6 +56,8 @@ namespace Exames
             Points = 0;
 
             MaxPoints = Tasks.Sum(task => task.MaxPoints);
+
+            AnswerFont = FontManager.Instance.GenerateFont();
             
             CalculateRealGrade();
         }

@@ -1,4 +1,5 @@
 using System;
+using Currencies;
 using DG.Tweening;
 using Exames;
 using Students;
@@ -14,15 +15,25 @@ public class GameManager : MonoBehaviour
    [SerializeField] 
    private ExamManager _examManager;
 
-   [SerializeField] private NameGenerator _nameGenerator;
+   [SerializeField]
+   private NameGenerator _nameGenerator;
+   
+   [SerializeField]
+   private CurrencyManager _currencyManager;
 
    public NameGenerator NameGenerator => _nameGenerator;
+   public CurrencyManager CurrencyManager => _currencyManager;
+
+   public DiceManager DiceManager => _diceManager;
 
    public int MaxSchoolWeeks = 3;
    public int MaxExams = 10;
    private int _currentWeeksFinished, _yearFinished;
-   private bool _onRollingDices, _gameStarted;
+   private bool _onRollingDices, _gameRunning;
 
+   public bool IsGameRunning => _gameRunning;
+
+   public int SubjectsForYearCount => _yearFinished + 2;
    private void Awake()
    {
       if (Instance != null && Instance != this)
@@ -38,9 +49,10 @@ public class GameManager : MonoBehaviour
    private void Start()
    {
       DOTween.Init();
-      _gameStarted = true;
+
       _diceManager.OnAllDicesRolled += AllDicesRolled;
       StartCorrectionPhase();
+      _gameRunning = true;
    }
 
    private void StartCorrectionPhase()
@@ -55,6 +67,12 @@ public class GameManager : MonoBehaviour
       _examManager.GenerateNewExams(MaxExams);
    }
 
+   public void FinishWeek()
+   {
+      _currencyManager.Add(_currencyManager.WeeklySalery);
+      //TODO progress ui
+      StartNextWeek();
+   }
    public void StartNextWeek()
    {
       _currentWeeksFinished++;
@@ -76,5 +94,10 @@ public class GameManager : MonoBehaviour
       //todo maybe some ui here to say go ahead?
 
       StartCorrectionPhase();
+   }
+
+   public void PauseGame()
+   {
+      _gameRunning = !_gameRunning;
    }
 }

@@ -16,8 +16,12 @@ public class Dice : MonoBehaviour
     public int result = 0;
     public UnityEvent<Dice> diceRollFinishedEvent;
     private bool wasMoved = false;
+
+    public Color DefaultCol, HighlighedCol, LockedCOl;
+
+    public MeshRenderer Renderer;
     
-    private bool _isLocked;
+    private bool _isLocked, _highlighted;
 
     public bool IsLocked
     {
@@ -25,9 +29,7 @@ public class Dice : MonoBehaviour
         set
         {
             _isLocked = value;
-            
-            //todo just testing, later material or something
-            transform.parent.gameObject.SetActive(!value);
+            Renderer.material.color = LockedCOl;
         }
     }
 
@@ -41,6 +43,8 @@ public class Dice : MonoBehaviour
         result = 0;
         IsLocked = false;
         rigid.constraints = RigidbodyConstraints.None;
+        rigid.isKinematic = false;
+        Renderer.material.color = DefaultCol;
 
         rigid.AddForce(new Vector3(Random.Range(-100,100), 300, Random.Range(-100, 100)));
         rigid.AddTorque(new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100)));
@@ -108,6 +112,9 @@ public class Dice : MonoBehaviour
     {
         if (!_isLocked && result != 0)
         {
+            _highlighted = true;
+            
+            Renderer.material.color = HighlighedCol;
             ExamManager.Instance.ShowDiceVal(this, true);
         }
     }
@@ -115,6 +122,12 @@ public class Dice : MonoBehaviour
     private void OnMouseExit()
     {
         ExamManager.Instance.ShowDiceVal(this, false);
+
+        if (!_isLocked && _highlighted)
+        {
+            _highlighted = false;
+            Renderer.material.color = DefaultCol;
+        }
     }
 
     public void SetToSLot(Vector3 target)
@@ -124,5 +137,7 @@ public class Dice : MonoBehaviour
         rigid.constraints = RigidbodyConstraints.FreezeRotation;
         rigid.constraints = RigidbodyConstraints.FreezePositionX;
         rigid.constraints = RigidbodyConstraints.FreezePositionZ;
+
+        rigid.isKinematic = true;
     }
 }
