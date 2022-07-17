@@ -20,7 +20,7 @@ namespace Exames.Tasks.Templates
                 Debug.Log("I have a problem: " + name);
             }
 
-            if (choosen.Length >= index)
+            if (index >= choosen.Length)
             {
                 Debug.Log("I have many problems: " + name);
             }
