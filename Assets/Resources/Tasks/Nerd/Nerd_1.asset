@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952719d630aa4e1da88b6b159bfa26c6, type: 3}
   m_Name: Nerd_1
   m_EditorClassIdentifier: 
-  question: What is the name of the fairy accompanying in Zelda Ocarina of Time?
+  question: What is the name of the fairy comapnion in Zelda Ocarina of Time?
   correct:
   - Navi
   wrong:
