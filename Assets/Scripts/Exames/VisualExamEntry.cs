@@ -6,10 +6,11 @@ public class VisualExamEntry : MonoBehaviour
 {
     public Exam Exam { get; private set; }
     public MeshRenderer Renderer;
-
+    
     public void Setup(Exam exam)
     {
         Exam = exam;
+        gameObject.name = exam.Subject.name;
 
         Renderer.material.color = Exam.Subject.Color;
     }

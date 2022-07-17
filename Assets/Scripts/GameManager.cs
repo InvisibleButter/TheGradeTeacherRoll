@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
    private bool _onRollingDices, _gameRunning;
 
    public bool IsGameRunning => _gameRunning;
+
+   public int SubjectsForYearCount => _yearFinished + 2;
    private void Awake()
    {
       if (Instance != null && Instance != this)

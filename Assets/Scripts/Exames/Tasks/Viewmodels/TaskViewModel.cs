@@ -11,6 +11,7 @@ public class TaskViewModel : MonoBehaviour
     private int _correctionIndex;
     protected ITask CurrentTask;
     private Exam CurrentExam;
+    
 
     public virtual void Setup(Exam exam, ITask simpleTask)
     {
@@ -36,6 +37,16 @@ public class TaskViewModel : MonoBehaviour
             var correct = _correctionIndex == 1;
             CurrentExam.MarkTask(CurrentTask, correct);
             CorrectionIcon.sprite = correct ? CorrectSprite : WrongSprite;
+        }
+    }
+
+    public void SetCorrectionVal(bool correct)
+    {
+        var cor = correct ? 1 : 2;
+        if(cor != _correctionIndex)
+        {
+            _correctionIndex = cor;
+            SetCorrection();
         }
     }
     
