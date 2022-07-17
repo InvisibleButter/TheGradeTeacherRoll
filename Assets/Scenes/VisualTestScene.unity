@@ -9301,6 +9301,11 @@ PrefabInstance:
       propertyPath: renderer
       value: 
       objectReference: {fileID: 1981085146}
+    - target: {fileID: 8697653809226824819, guid: 3eccf7ff12b62174e885e4a885005b2a,
+        type: 3}
+      propertyPath: _cameraController
+      value: 
+      objectReference: {fileID: 8697653810573325890}
     - target: {fileID: 8946268028117801462, guid: 3eccf7ff12b62174e885e4a885005b2a,
         type: 3}
       propertyPath: m_LocalPosition.x
