@@ -1340,6 +1340,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstNames:
   - Hans
+  - Peter
+  - Klaus
+  - Thomas
+  - Markus
+  - Stefan
+  - "J\xF6rg"
+  - Alexander
+  - Matthias
   lastNames:
   - "M\xFCller"
 --- !u!1 &9140362761422891105
