@@ -9,10 +9,15 @@ namespace Strikes
 
         public static StrikeManager INSTANCE => _INSTANCE;
 
+        [SerializeField]
+        private GameObject[] blueLetters;
+        
         private int strikes = 0;
 
-        public int Strikes => strikes;
+        public int MaxStrikes => blueLetters.Length;
         
+        public int Strikes => strikes;
+
         private void Awake()
         {
             if (_INSTANCE != null)
@@ -22,12 +27,20 @@ namespace Strikes
             }
 
             _INSTANCE = this;
+            foreach (var blueLetter in blueLetters)
+            {
+                blueLetter.SetActive(false);
+            }
         }
 
         public void AddNewStrike()
         {
+            if (strikes >= blueLetters.Length)
+            {
+                throw new Exception("Game should already finish");
+            }
+            blueLetters[strikes].SetActive(true);
             ++strikes;
-            //TODO display blue letter as indicator
         }
     }
 }

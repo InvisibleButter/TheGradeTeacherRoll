@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Exames.Tasks.Templates
 {
@@ -7,7 +6,7 @@ namespace Exames.Tasks.Templates
     public class SimpleImageTaskTemplate : TaskTemplate
     {
 
-        [SerializeField] private Image image;
+        [SerializeField] private Sprite image;
 
         public override int MaxPoints => 1;
 

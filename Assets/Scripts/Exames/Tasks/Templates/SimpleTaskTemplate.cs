@@ -15,6 +15,16 @@ namespace Exames.Tasks.Templates
             var choosen = correct ? base.correct : wrong;
             var index = random.Next(0, choosen.Length);
 
+            if (choosen.Length == 0)
+            {
+                Debug.Log("I have a problem: " + name);
+            }
+
+            if (index >= choosen.Length)
+            {
+                Debug.Log("I have many problems: " + name);
+            }
+            
             return new SimpleTask(TaskType.SINGLE_LINE, question, choosen[index], correct);
         }
     }
