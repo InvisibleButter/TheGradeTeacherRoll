@@ -2,6 +2,7 @@ using Currencies;
 using DG.Tweening;
 using Exames;
 using Report;
+using Strikes;
 using Students;
 using UnityEngine;
 
@@ -71,9 +72,15 @@ public class GameManager : MonoBehaviour
    public void StartCorrectionPhase()
    {
       //TODO check for max strike
-
-      _onRollingDices = true;
-      _diceManager.RollDices();
+      if (StrikeManager.INSTANCE.MaxStrikes == StrikeManager.INSTANCE.Strikes)
+      {
+         StrikeManager.INSTANCE.GiveLastLetter();
+      }
+      else
+      {
+         _onRollingDices = true;
+         _diceManager.RollDices();  
+      }
    }
 
    private void AllDicesRolled()

@@ -1689,6 +1689,9 @@ MonoBehaviour:
   - {fileID: 8626159252425749321}
   - {fileID: 7251329197592611095}
   - {fileID: 5499130268623097357}
+  lastLetter: {fileID: 7802626718063978827, guid: 0f493d5c335d02848b1d9f801c58d4f0,
+    type: 3}
+  lastLetterHolder: {fileID: 6953858874691105014}
 --- !u!114 &4618716343819470339
 MonoBehaviour:
   m_ObjectHideFlags: 0
