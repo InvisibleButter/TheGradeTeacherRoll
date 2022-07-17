@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
    public int MaxSchoolWeeks = 3;
    public int MaxExams = 10;
    private int _currentWeeksFinished, _yearFinished;
-   private bool _onRollingDices, _gameStarted;
+   private bool _onRollingDices, _gameRunning;
 
+   public bool IsGameRunning => _gameRunning;
    private void Awake()
    {
       if (Instance != null && Instance != this)
@@ -46,9 +47,10 @@ public class GameManager : MonoBehaviour
    private void Start()
    {
       DOTween.Init();
-      _gameStarted = true;
+
       _diceManager.OnAllDicesRolled += AllDicesRolled;
       StartCorrectionPhase();
+      _gameRunning = true;
    }
 
    private void StartCorrectionPhase()
@@ -90,5 +92,10 @@ public class GameManager : MonoBehaviour
       //todo maybe some ui here to say go ahead?
 
       StartCorrectionPhase();
+   }
+
+   public void PauseGame()
+   {
+      _gameRunning = !_gameRunning;
    }
 }

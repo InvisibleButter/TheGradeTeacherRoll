@@ -80,6 +80,11 @@ namespace Exames
 
         public void ShowNextExam()
         {
+            if (!GameManager.Instance.IsGameRunning)
+            {
+                return;
+            }
+            
             if (_currentExam == null)
             {
                 _currentExam = _currentExams.FirstOrDefault(each => !each.IsFinished);
@@ -125,6 +130,11 @@ namespace Exames
 
         public void SetDice(Dice d)
         {
+            if (!GameManager.Instance.IsGameRunning)
+            {
+                return;
+            }
+            
             if (_currentExam is { CanFinish: true })
             {
                 _currentExam.SetDice(d);
