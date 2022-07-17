@@ -53,7 +53,7 @@ namespace Exames
 
         private Exam CreateNewExam()
         {
-            var index = _random.Next(0, _subjects.Length);
+            var index = _random.Next(0, Mathf.Min(GameManager.Instance.SubjectsForYearCount, _subjects.Length));
             var subject = _subjects[index];
             var tasks = subject.TryGenerateUniqueTasks(11, _random);
             return new Exam(subject, tasks);
@@ -84,10 +84,13 @@ namespace Exames
             {
                 return;
             }
+
+            Exam e =_visualExamManager.GetLastExam();
             
             if (_currentExam == null)
             {
-                _currentExam = _currentExams.FirstOrDefault(each => !each.IsFinished);
+               _currentExam = e;
+                //_currentExam =_currentExams.FirstOrDefault(each => !each.IsFinished);
             }
             else
             {
@@ -95,7 +98,7 @@ namespace Exames
                 {
                     return;
                 }
-                _currentExam = _currentExams.FirstOrDefault(each => !each.IsFinished);
+                _currentExam = e;
             }
             
             renderer.gameObject.SetActive(true);

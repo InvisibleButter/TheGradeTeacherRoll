@@ -1218,6 +1218,7 @@ GameObject:
   - component: {fileID: 8697653809226824819}
   - component: {fileID: 7223126770840005377}
   - component: {fileID: 5138717239274755126}
+  - component: {fileID: 2618302019675624975}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1428,6 +1429,24 @@ MonoBehaviour:
   - Marx
   - Schmitz
   - Vogel
+--- !u!114 &2618302019675624975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697653809226824816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c0dded3b96892149b09447cb055c2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fonts:
+  - {fileID: 11400000, guid: 95d520d45d572dc41b770a46fc43e038, type: 2}
+  - {fileID: 11400000, guid: 2c400ba7c4e85174a81bff4c8f90054b, type: 2}
+  - {fileID: 11400000, guid: 2b75aa4c2a0356e4c888e6b74c5e18f6, type: 2}
+  - {fileID: 11400000, guid: d1bf82b8da672d84a95c2cc21e25d5a8, type: 2}
+  - {fileID: 11400000, guid: c90bbeb0934dcec469ff3e3bff306e0b, type: 2}
 --- !u!1 &9140362761422891105
 GameObject:
   m_ObjectHideFlags: 0

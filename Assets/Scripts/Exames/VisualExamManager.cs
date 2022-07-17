@@ -46,16 +46,18 @@ public class VisualExamManager : MonoBehaviour
             go.GetComponent<VisualExamEntry>().Setup(_exames[i]);
             _examVisuals.Add(go);
 
-            if (i > 0 && i <= _exames.Count - 2)
-            {
-                go.transform.position += new Vector3(0, i * Spacing, 0);
-            }
+            go.transform.position += new Vector3(0, i * Spacing, 0);
             
 
             go.transform.eulerAngles += new Vector3(0, Random.Range(-15, 15), 0);
         }
     }
 
+    public Exam GetLastExam()
+    {
+        return _examVisuals.Last(each => each.activeInHierarchy).GetComponent<VisualExamEntry>().Exam;
+    }
+    
     public void HideLastExam()
     {
         GameObject go = _examVisuals.Last(each => each.activeInHierarchy);

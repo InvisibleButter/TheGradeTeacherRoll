@@ -45,6 +45,8 @@ namespace Exames
             
             //render subject
             subjectDisplay.text = _exam.Subject.name;
+
+            nameDisplay.font = _exam.AnswerFont;
             nameDisplay.text = GameManager.Instance.NameGenerator.GetName();
         }
 
