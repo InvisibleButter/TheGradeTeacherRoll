@@ -287,7 +287,7 @@ MonoBehaviour:
   WrongSprite: {fileID: 21300000, guid: ea0d0cda55cbb5d4a8938919d2b1e4cd, type: 3}
   CorrectSprite: {fileID: 21300000, guid: 0e1c3584ffaaa8c489110f1d5fcbc4a6, type: 3}
   DefaultCol: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
-  HighlightedCol: {r: 0.9647059, g: 0.972549, b: 0.5921569, a: 0}
+  HighlightedCol: {r: 0.9647059, g: 0.972549, b: 0.5921569, a: 1}
   BaseImg: {fileID: 5537821183781502112}
   Icon: {fileID: 1053262609267942210}
   Question: {fileID: 5514615235530165213}

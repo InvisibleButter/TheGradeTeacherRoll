@@ -1040,7 +1040,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6432575531915904675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.9, y: -0, z: -5.9}
+  m_LocalPosition: {x: -31.8, y: 3.2, z: -5.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1619,27 +1619,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d1bf82b8da672d84a95c2cc21e25d5a8, type: 2}
   - {fileID: 11400000, guid: c90bbeb0934dcec469ff3e3bff306e0b, type: 2}
   CorrectSprites:
-  - {fileID: 521993322, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: 2088991056, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: -1837756155, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: 1773350618, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: -1030408243, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: 602239160, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: 67653591, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: -1893406733, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: 1582199886, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: 343167872, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
+  - {fileID: 310509742, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
+  - {fileID: -212718752, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
+  - {fileID: 483288948, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
+  - {fileID: 32278233, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
+  - {fileID: 1955189155, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
+  - {fileID: 1887708168, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
   WrongSprites:
-  - {fileID: -1953275532, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: 485135027, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: -1440823172, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: -785292444, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: 1675818343, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: -420420947, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: -1912797926, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: 828085373, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: 1425943971, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
-  - {fileID: -1926231238, guid: a02c90f7f6ae0ba458ac63b494576703, type: 3}
+  - {fileID: -2006629709, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
+  - {fileID: 296952968, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
+  - {fileID: 1609356746, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
+  - {fileID: -1824567823, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
+  - {fileID: 105643785, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
+  - {fileID: -616717473, guid: d41881b2dbcd6014388a7d0d6a4aed73, type: 3}
   FolderMats:
   - Name: Art
     Material: {fileID: 2100000, guid: 43a77adfc7f2c0840b3e3a503bb04ede, type: 2}
@@ -1656,7 +1648,7 @@ MonoBehaviour:
   - Name: Mathmathics
     Material: {fileID: 2100000, guid: d7f4c072c69046a46883773b18539a70, type: 2}
   - Name: Nerd
-    Material: {fileID: 2100000, guid: 43a77adfc7f2c0840b3e3a503bb04ede, type: 2}
+    Material: {fileID: 2100000, guid: d2eb2fe605dbd1e4597262009dac2378, type: 2}
   - Name: Physics
     Material: {fileID: 2100000, guid: 5559f410113d8934f945677890c3ba3c, type: 2}
 --- !u!114 &5739251793275676022
