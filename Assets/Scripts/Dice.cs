@@ -41,6 +41,7 @@ public class Dice : MonoBehaviour
         result = 0;
         IsLocked = false;
         rigid.constraints = RigidbodyConstraints.None;
+        rigid.isKinematic = false;
 
         rigid.AddForce(new Vector3(Random.Range(-100,100), 300, Random.Range(-100, 100)));
         rigid.AddTorque(new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100)));
@@ -124,5 +125,7 @@ public class Dice : MonoBehaviour
         rigid.constraints = RigidbodyConstraints.FreezeRotation;
         rigid.constraints = RigidbodyConstraints.FreezePositionX;
         rigid.constraints = RigidbodyConstraints.FreezePositionZ;
+
+        rigid.isKinematic = true;
     }
 }

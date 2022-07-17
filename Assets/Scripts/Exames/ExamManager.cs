@@ -87,7 +87,7 @@ namespace Exames
             
             if (_currentExam == null)
             {
-                _currentExam = _currentExams.FirstOrDefault(each => !each.IsFinished);
+                _currentExam =_currentExams.FirstOrDefault(each => !each.IsFinished);
             }
             else
             {
