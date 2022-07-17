@@ -84,10 +84,13 @@ namespace Exames
             {
                 return;
             }
+
+            Exam e =_visualExamManager.GetLastExam();
             
             if (_currentExam == null)
             {
-                _currentExam =_currentExams.FirstOrDefault(each => !each.IsFinished);
+               _currentExam = e;
+                //_currentExam =_currentExams.FirstOrDefault(each => !each.IsFinished);
             }
             else
             {
@@ -95,7 +98,7 @@ namespace Exames
                 {
                     return;
                 }
-                _currentExam = _currentExams.FirstOrDefault(each => !each.IsFinished);
+                _currentExam = e;
             }
             
             renderer.gameObject.SetActive(true);
