@@ -14,6 +14,8 @@ namespace Strikes
         
         private int strikes = 0;
 
+        public int MaxStrikes => blueLetters.Length;
+        
         public int Strikes => strikes;
 
         private void Awake()
@@ -25,12 +27,20 @@ namespace Strikes
             }
 
             _INSTANCE = this;
+            foreach (var blueLetter in blueLetters)
+            {
+                blueLetter.SetActive(false);
+            }
         }
 
         public void AddNewStrike()
         {
+            if (strikes >= blueLetters.Length)
+            {
+                throw new Exception("Game should already finish");
+            }
+            blueLetters[strikes].SetActive(true);
             ++strikes;
-            //TODO display blue letter as indicator
         }
     }
 }
