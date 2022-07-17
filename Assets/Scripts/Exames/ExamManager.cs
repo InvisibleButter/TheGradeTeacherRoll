@@ -22,7 +22,13 @@ namespace Exames
         private Random _random;
 
         private bool isFirstThisWeek = true;
-        
+
+        public List<Exam> CurrentExams => _currentExams;
+
+        public Subject NewestSubject => _subjects[IndexOfNewestSubject];
+
+        private int IndexOfNewestSubject => Mathf.Min(GameManager.Instance.SubjectsForYearCount, _subjects.Length);
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -53,7 +59,7 @@ namespace Exames
 
         private Exam CreateNewExam()
         {
-            var index = _random.Next(0, Mathf.Min(GameManager.Instance.SubjectsForYearCount, _subjects.Length));
+            var index = _random.Next(0, IndexOfNewestSubject);
             var subject = _subjects[index];
             var tasks = subject.TryGenerateUniqueTasks(11, _random);
             return new Exam(subject, tasks);

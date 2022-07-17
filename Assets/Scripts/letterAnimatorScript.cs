@@ -10,14 +10,6 @@ public class letterAnimatorScript : MonoBehaviour
         anim = this.GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            OpenLetter();
-        }
-    }
-
     public void OpenLetter()
     {
         anim.SetTrigger("openLetter");
