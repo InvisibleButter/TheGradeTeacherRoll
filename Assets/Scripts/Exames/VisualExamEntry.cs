@@ -11,8 +11,8 @@ public class VisualExamEntry : MonoBehaviour
     {
         Exam = exam;
         gameObject.name = exam.Subject.name;
-
-        Renderer.material.color = Exam.Subject.Color;
+        Renderer.material = FontManager.Instance.GetMaterialForSubject(exam.Subject.name);
+        // Renderer.material.color = Exam.Subject.Color;
     }
 
     public void OnMouseDown()

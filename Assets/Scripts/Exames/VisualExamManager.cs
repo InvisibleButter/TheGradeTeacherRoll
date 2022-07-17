@@ -8,7 +8,7 @@ public class VisualExamManager : MonoBehaviour
     public GameObject ExamVisualPrefab;
     public Transform ExamsHolder;
 
-    public int Spacing = 2;
+    public float Spacing = 2f;
 
     private List<Exam> _exames;
     private List<GameObject> _examVisuals;
@@ -43,10 +43,10 @@ public class VisualExamManager : MonoBehaviour
         for (int i = 0; i < _exames.Count; i++)
         {
             GameObject go = Instantiate(ExamVisualPrefab, ExamsHolder);
-            go.GetComponent<VisualExamEntry>().Setup(_exames[i]);
+            go.GetComponentInChildren<VisualExamEntry>().Setup(_exames[i]);
             _examVisuals.Add(go);
 
-            go.transform.position += new Vector3(0, i * Spacing, 0);
+            go.transform.localPosition += new Vector3(0, (i * Spacing), 0);
             
 
             go.transform.eulerAngles += new Vector3(0, Random.Range(-15, 15), 0);
@@ -55,7 +55,7 @@ public class VisualExamManager : MonoBehaviour
 
     public Exam GetLastExam()
     {
-        return _examVisuals.Last(each => each.activeInHierarchy).GetComponent<VisualExamEntry>().Exam;
+        return _examVisuals.Last(each => each.activeInHierarchy).GetComponentInChildren<VisualExamEntry>().Exam;
     }
     
     public void HideLastExam()
