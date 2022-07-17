@@ -9,10 +9,13 @@ namespace Strikes
 
         public static StrikeManager INSTANCE => _INSTANCE;
 
+        [SerializeField]
+        private GameObject[] blueLetters;
+        
         private int strikes = 0;
 
         public int Strikes => strikes;
-        
+
         private void Awake()
         {
             if (_INSTANCE != null)
