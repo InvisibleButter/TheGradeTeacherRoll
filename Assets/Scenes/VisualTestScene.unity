@@ -6788,26 +6788,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.03813671, y: 0.01999998, z: 0.14310414}
   m_Center: {x: -1.5688661e-10, y: 0.000000059585034, z: 0.0052640177}
---- !u!1 &1662069886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8697653809226824816, guid: 3eccf7ff12b62174e885e4a885005b2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8697653810573325888}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1662069893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662069886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0131639b836d4483b43f412dcc847ef2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startMoney: 10
-  weeklySalery: 10
 --- !u!4 &1696087418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4186335368245520, guid: d11695e43d89ff24bb36886a4c039c14,
@@ -9292,11 +9272,6 @@ PrefabInstance:
       propertyPath: renderer
       value: 
       objectReference: {fileID: 1981085146}
-    - target: {fileID: 8697653809226824819, guid: 3eccf7ff12b62174e885e4a885005b2a,
-        type: 3}
-      propertyPath: _currencyManager
-      value: 
-      objectReference: {fileID: 1662069893}
     - target: {fileID: 8946268028117801462, guid: 3eccf7ff12b62174e885e4a885005b2a,
         type: 3}
       propertyPath: m_LocalPosition.x
