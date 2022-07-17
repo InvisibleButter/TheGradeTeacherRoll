@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
    
    [SerializeField]
    private WeeklyReportManager _weeklyReportManager;
+   
+   [SerializeField]
+   private CameraController _cameraController;
 
    public NameGenerator NameGenerator => _nameGenerator;
    public CurrencyManager CurrencyManager => _currencyManager;
@@ -52,7 +55,14 @@ public class GameManager : MonoBehaviour
    private void Start()
    {
       DOTween.Init();
+      
+      _cameraController.ClassView();
+      StartGame();
+   }
 
+   public void StartGame()
+   {
+      _cameraController.DeskView();
       _diceManager.OnAllDicesRolled += AllDicesRolled;
       StartCorrectionPhase();
       _gameRunning = true;
@@ -70,6 +80,7 @@ public class GameManager : MonoBehaviour
    {
       _onRollingDices = false;
       _examManager.GenerateNewExams(MaxExams);
+      _cameraController.ExamView();
    }
 
    public void FinishWeek()
@@ -99,8 +110,16 @@ public class GameManager : MonoBehaviour
       //todo maybe some ui here to say go ahead?
    }
 
-   public void PauseGame()
+   public void PauseGame(bool isPaused)
    {
-      _gameRunning = !_gameRunning;
+      _gameRunning = !isPaused;
+      if (isPaused)
+      {
+         _cameraController.ClassView();
+      }
+      else
+      {
+         _cameraController.ExamView();
+      }
    }
 }
