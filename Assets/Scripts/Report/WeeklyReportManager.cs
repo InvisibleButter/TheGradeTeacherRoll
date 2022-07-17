@@ -37,7 +37,7 @@ namespace Report
             {
                 StrikeManager.INSTANCE.AddNewStrike();
             }
-            GameManager.Instance.StartNextWeek();
+            GameManager.Instance.StartCorrectionPhase();
         }
 
         public void StartWeeklyReport(int currentWeeksFinished, int maxSchoolWeeks, int currencyManagerWeeklySalery,

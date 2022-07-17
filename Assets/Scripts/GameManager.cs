@@ -58,8 +58,10 @@ public class GameManager : MonoBehaviour
       _gameRunning = true;
    }
 
-   private void StartCorrectionPhase()
+   public void StartCorrectionPhase()
    {
+      //TODO check for max strike
+
       _onRollingDices = true;
       _diceManager.RollDices();
    }
@@ -72,13 +74,13 @@ public class GameManager : MonoBehaviour
 
    public void FinishWeek()
    {
-      ++_currentWeeksFinished;
+      StartNextWeek();
       _currencyManager.Add(_currencyManager.WeeklySalery);
       _weeklyReportManager.StartWeeklyReport(_currentWeeksFinished, MaxSchoolWeeks, _currencyManager.WeeklySalery, _examManager.CurrentExams, null);
    }
    public void StartNextWeek()
    {
-      //TODO check for max strike
+      ++_currentWeeksFinished;
       if (_currentWeeksFinished >= MaxSchoolWeeks)
       {
          StartNextYear();
@@ -86,17 +88,15 @@ public class GameManager : MonoBehaviour
       else
       {
          Debug.Log("*** start next week: " + _currentWeeksFinished);
-         StartCorrectionPhase();
       }
    }
 
    private void StartNextYear()
    {
       _yearFinished++;
+      _currentWeeksFinished = 0;
       Debug.Log("*** start next year: " + _yearFinished);
       //todo maybe some ui here to say go ahead?
-
-      StartCorrectionPhase();
    }
 
    public void PauseGame()
