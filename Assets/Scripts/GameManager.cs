@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
    public int MaxExams = 10;
    private int _currentWeeksFinished, _yearFinished;
    private bool _onRollingDices, _gameRunning;
+   protected bool _isFirstStart = true;
 
    public bool IsGameRunning => _gameRunning;
 
@@ -57,7 +58,6 @@ public class GameManager : MonoBehaviour
       DOTween.Init();
       
       _cameraController.ClassView();
-      StartGame();
    }
 
    public void StartGame()
@@ -110,6 +110,19 @@ public class GameManager : MonoBehaviour
       //todo maybe some ui here to say go ahead?
    }
 
+   public void IngamePlayButton()
+   {
+      if (_isFirstStart)
+      {
+         StartGame();
+         _isFirstStart = false;
+      }
+      else
+      {
+         PauseGame(_gameRunning);
+      }
+   }
+   
    public void PauseGame(bool isPaused)
    {
       _gameRunning = !isPaused;
