@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952719d630aa4e1da88b6b159bfa26c6, type: 3}
   m_Name: Nerd_2
   m_EditorClassIdentifier: 
-  question: Whats the name of the device used to erase memories in Men in Black?
+  question: What device is used to erase memories in Men in Black?
   correct:
   - Neuralizer
   wrong:
