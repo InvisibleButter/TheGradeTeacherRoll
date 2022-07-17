@@ -1,4 +1,5 @@
 using System;
+using Currencies;
 using DG.Tweening;
 using Exames;
 using Students;
@@ -14,13 +15,20 @@ public class GameManager : MonoBehaviour
    [SerializeField] 
    private ExamManager _examManager;
 
-   [SerializeField] private NameGenerator _nameGenerator;
+   [SerializeField]
+   private NameGenerator _nameGenerator;
+   
+   [SerializeField]
+   private CurrencyManager _currencyManager;
 
    public NameGenerator NameGenerator => _nameGenerator;
+   public CurrencyManager CurrencyManager => _currencyManager;
+
+   public DiceManager DiceManager => _diceManager;
 
    public int MaxSchoolWeeks = 3;
-   private int _currentWeeksFinished;
-   private int _currenTestPhasesFinished;
+   public int MaxExams = 10;
+   private int _currentWeeksFinished, _yearFinished;
    private bool _onRollingDices, _gameStarted;
 
    private void Awake()
@@ -52,8 +60,35 @@ public class GameManager : MonoBehaviour
    private void AllDicesRolled()
    {
       _onRollingDices = false;
-      Debug.Log("*** all rolled");
-      
-      _examManager.GenerateNewExams(5);
+      _examManager.GenerateNewExams(MaxExams);
+   }
+
+   public void FinishWeek()
+   {
+      _currencyManager.Add(_currencyManager.WeeklySalery);
+      //TODO progress ui
+      StartNextWeek();
+   }
+   public void StartNextWeek()
+   {
+      _currentWeeksFinished++;
+      if (_currentWeeksFinished >= MaxSchoolWeeks)
+      {
+         StartNextYear();
+      }
+      else
+      {
+         Debug.Log("*** start next week: " + _currentWeeksFinished);
+         StartCorrectionPhase();
+      }
+   }
+
+   private void StartNextYear()
+   {
+      _yearFinished++;
+      Debug.Log("*** start next year: " + _yearFinished);
+      //todo maybe some ui here to say go ahead?
+
+      StartCorrectionPhase();
    }
 }

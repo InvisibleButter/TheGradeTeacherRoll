@@ -40,7 +40,7 @@ public class VisualExamManager : MonoBehaviour
 
     private void CreateVisuals()
     {
-        for (int i = 0; i < _exames.Count - 1; i++)
+        for (int i = 0; i < _exames.Count; i++)
         {
             GameObject go = Instantiate(ExamVisualPrefab, ExamsHolder);
             go.GetComponent<VisualExamEntry>().Setup(_exames[i]);

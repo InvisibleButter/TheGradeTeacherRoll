@@ -15,7 +15,8 @@ public class Dice : MonoBehaviour
     float ROTATION_THRESHOLD = 0.1f;
     public int result = 0;
     public UnityEvent<Dice> diceRollFinishedEvent;
-
+    private bool wasMoved = false;
+    
     private bool _isLocked;
 
     public bool IsLocked
@@ -37,14 +38,24 @@ public class Dice : MonoBehaviour
 
     public void RollDice()
     {
+        result = 0;
+        IsLocked = false;
+        rigid.constraints = RigidbodyConstraints.None;
+
         rigid.AddForce(new Vector3(Random.Range(-100,100), 300, Random.Range(-100, 100)));
         rigid.AddTorque(new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100)));
         isFinished = false;
+        wasMoved = false;
     }
 
     private void Update()
     {
-        if(!isFinished)
+        if (rigid.velocity.magnitude > VELOCITY_THRESHOLDE && !wasMoved)
+        {
+            wasMoved = true;
+        }
+        
+        if(!isFinished&&wasMoved)
         {
             if(rigid.velocity.magnitude<VELOCITY_THRESHOLDE)
             {
@@ -82,8 +93,6 @@ public class Dice : MonoBehaviour
         if(right > 2 - ROTATION_THRESHOLD)return 5;
 
         return 0;
-     
-
     }
 
     private void OnMouseDown()
@@ -91,12 +100,13 @@ public class Dice : MonoBehaviour
         if (!IsLocked)
         {
             ExamManager.Instance.SetDice(this);
+            ExamManager.Instance.ShowDiceVal(this, false);
         }
     }
 
     private void OnMouseEnter()
     {
-        if (!_isLocked)
+        if (!_isLocked && result != 0)
         {
             ExamManager.Instance.ShowDiceVal(this, true);
         }
@@ -105,5 +115,14 @@ public class Dice : MonoBehaviour
     private void OnMouseExit()
     {
         ExamManager.Instance.ShowDiceVal(this, false);
+    }
+
+    public void SetToSLot(Vector3 target)
+    {
+        transform.position = target;   
+        
+        rigid.constraints = RigidbodyConstraints.FreezeRotation;
+        rigid.constraints = RigidbodyConstraints.FreezePositionX;
+        rigid.constraints = RigidbodyConstraints.FreezePositionZ;
     }
 }

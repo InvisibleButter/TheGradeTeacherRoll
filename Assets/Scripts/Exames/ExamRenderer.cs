@@ -27,7 +27,7 @@ namespace Exames
         {
             if (_exam != null)
             {
-                throw new Exception("Exam already set!");
+                Clear();
             }
 
             _exam = exam;
@@ -76,6 +76,7 @@ namespace Exames
             if (_exam != null)
             {
                 _exam.OnGradeChanged -= RenderGrade;
+                _exam.OnPointsChanged -= RenderPoints;
             }
 
             foreach (var task in _tasks)
