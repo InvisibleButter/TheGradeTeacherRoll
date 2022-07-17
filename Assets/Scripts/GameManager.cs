@@ -1,7 +1,7 @@
-using System;
 using Currencies;
 using DG.Tweening;
 using Exames;
+using Report;
 using Students;
 using UnityEngine;
 
@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
    
    [SerializeField]
    private CurrencyManager _currencyManager;
+   
+   [SerializeField]
+   private WeeklyReportManager _weeklyReportManager;
 
    public NameGenerator NameGenerator => _nameGenerator;
    public CurrencyManager CurrencyManager => _currencyManager;
@@ -67,13 +70,13 @@ public class GameManager : MonoBehaviour
 
    public void FinishWeek()
    {
+      ++_currentWeeksFinished;
       _currencyManager.Add(_currencyManager.WeeklySalery);
-      //TODO progress ui
-      StartNextWeek();
+      _weeklyReportManager.StartWeeklyReport(_currentWeeksFinished, MaxSchoolWeeks, _currencyManager.WeeklySalery, _examManager.CurrentExams, null);
    }
    public void StartNextWeek()
    {
-      _currentWeeksFinished++;
+      //TODO check for max strike
       if (_currentWeeksFinished >= MaxSchoolWeeks)
       {
          StartNextYear();

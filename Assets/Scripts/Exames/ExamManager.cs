@@ -22,7 +22,9 @@ namespace Exames
         private Random _random;
 
         private bool isFirstThisWeek = true;
-        
+
+        public List<Exam> CurrentExams => _currentExams;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
