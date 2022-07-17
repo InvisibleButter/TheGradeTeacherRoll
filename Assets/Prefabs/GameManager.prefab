@@ -1523,6 +1523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeeklyReportPrefab: {fileID: 7802626718063978827, guid: a845f74342886804ba7f7c39c2b8a1cb,
     type: 3}
+  holder: {fileID: 6953858874691105014}
 --- !u!1 &9140362761422891105
 GameObject:
   m_ObjectHideFlags: 0

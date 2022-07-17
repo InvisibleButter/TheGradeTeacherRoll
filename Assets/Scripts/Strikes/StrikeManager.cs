@@ -10,6 +10,8 @@ namespace Strikes
         public static StrikeManager INSTANCE => _INSTANCE;
 
         private int strikes = 0;
+
+        public int Strikes => strikes;
         
         private void Awake()
         {

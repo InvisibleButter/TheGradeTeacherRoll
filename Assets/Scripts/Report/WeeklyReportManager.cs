@@ -12,11 +12,13 @@ namespace Report
     {
 
         private static WeeklyReportManager INSTANCE;
+        
+        public static WeeklyReportManager Instance => INSTANCE;
 
         [SerializeField] private GameObject WeeklyReportPrefab;
         [SerializeField] private Transform holder;
 
-        private GameObject curreentReport;
+        private letterAnimatorScript curreentReport;
         private WeeklyReport currentWeeklyReport;
 
         private void Awake()
@@ -32,7 +34,7 @@ namespace Report
 
         public void CloseReport()
         {
-            Destroy(curreentReport);
+            Destroy(curreentReport.gameObject);
             if (currentWeeklyReport.IsStrike)
             {
                 StrikeManager.INSTANCE.AddNewStrike();
@@ -49,12 +51,12 @@ namespace Report
             currentWeeklyReport = new WeeklyReport(currentWeeksFinished, maxSchoolWeeks, correctionRate, gradeCorrectionRate,
                 currencyManagerWeeklySalery, 0);
             
-            curreentReport = Instantiate(WeeklyReportPrefab, Vector3.zero, Quaternion.identity, holder);
+            curreentReport = Instantiate(WeeklyReportPrefab, holder).GetComponent<letterAnimatorScript>();
             WeeklyReportRenderer _renderer = curreentReport.GetComponent<WeeklyReportRenderer>();
             
             _renderer.Display(currentWeeklyReport);
 
-            if (newSubject != null)
+            if (newSubject != null && currentWeeksFinished == maxSchoolWeeks)
             {
                 _renderer.DisplayNewSubject(newSubject);
             }
@@ -63,6 +65,8 @@ namespace Report
             {
                 _renderer.DisplayNewStrike();
             }
+            
+            curreentReport.OpenLetter();
         }
 
         private int CalculateCorrectionRate(IReadOnlyCollection<Exam> exams)

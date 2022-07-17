@@ -1,7 +1,10 @@
+using System;
 using Currencies;
 using Exames.Subjects;
+using Strikes;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Report
 {
@@ -18,12 +21,29 @@ namespace Report
         [SerializeField] private TMP_Text subjectDisplay;
         
         [SerializeField] private GameObject strikeHolder;
+        [SerializeField] private TMP_Text strikeDisplay;
+
+        [SerializeField]
+        private Button _button;
+
+        private string strikeTextTemplate;
+        private void Awake()
+        {
+            strikeTextTemplate = strikeDisplay.text;
+            _button.onClick.AddListener(OnStartNextWeek);
+        }
+
+        private void OnStartNextWeek()
+        {
+            _button.onClick.RemoveAllListeners();
+            WeeklyReportManager.Instance.CloseReport();
+        }
 
         public void Display(WeeklyReport report)
         {
-            return;
             subjectHolder.gameObject.SetActive(false);
-            weekDisplay.text = $"{report.Week}/{report.MaxWeek}";
+            strikeHolder.gameObject.SetActive(false);
+         //   weekDisplay.text = $"{report.Week}/{report.MaxWeek}";
             correctionRateDisplay.text = $"{report.CorrectionRate} %";
             correctionGradRateDisplay.text = $"{report.CorrectGradeRate} %";
             saleryDisplay.text = CurrencyManager.Display(report.Salery);
@@ -32,14 +52,13 @@ namespace Report
 
         public void DisplayNewSubject(Subject newSubject)
         {
-            return;
             subjectHolder.SetActive(true);
             subjectDisplay.text = newSubject.name;
         }
 
         public void DisplayNewStrike()
         {
-            return;
+            strikeDisplay.text = string.Format(strikeTextTemplate, StrikeManager.INSTANCE.Strikes + 1);
             strikeHolder.SetActive(true);
         }
     }
