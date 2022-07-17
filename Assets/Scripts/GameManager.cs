@@ -115,8 +115,12 @@ public class GameManager : MonoBehaviour
       if (_isFirstStart)
       {
          StartGame();
+         _isFirstStart = false;
       }
-      PauseGame(_gameRunning);
+      else
+      {
+         PauseGame(_gameRunning);
+      }
    }
    
    public void PauseGame(bool isPaused)

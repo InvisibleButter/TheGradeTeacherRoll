@@ -25,7 +25,6 @@ public class IngameUI : MonoBehaviour
         {
             GameManager.Instance.PauseGame(true);
             _isOpen = true;
-            IngamePanel.gameObject.SetActive(true);
         }
     }
 
