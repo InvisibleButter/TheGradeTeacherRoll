@@ -22,8 +22,8 @@ public class WackyHandMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (plane.Raycast(ray, out distance))
         {
-            Vector3 newPos = ray.GetPoint(distance)+offset.position;
-            if(Vector3.Distance(newPos,startPosition)<MAX_ARMLENGTH)
+            Vector3 newPos = ray.GetPoint(distance) + offset.position;
+            if (Vector3.Distance(newPos, startPosition) < MAX_ARMLENGTH)
                 rigid.MovePosition(new Vector3(newPos.x, transform.position.y, newPos.z));
         }
     }
