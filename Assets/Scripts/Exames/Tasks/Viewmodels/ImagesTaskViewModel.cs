@@ -14,6 +14,7 @@ public class ImagesTaskViewModel : TaskViewModel
 
       Question.text = task.Question;
       Answer.text = task.Answers[0];
+      Answer.font = exam.AnswerFont;
 
       Icon.sprite = (task as SimpleImageTask).Image;
    }
