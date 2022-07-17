@@ -1255,8 +1255,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _subjects:
   - {fileID: 11400000, guid: 0e2845450d8be0d448cf60a5b3a53bde, type: 2}
+  - {fileID: 11400000, guid: a714d28863627d84fa7bb31dfcb765a4, type: 2}
+  - {fileID: 11400000, guid: 308e92d922e0e5742a0414cbb5fd74d2, type: 2}
+  - {fileID: 11400000, guid: e55b9cc1c2ce315468e985e62f587a0e, type: 2}
+  - {fileID: 11400000, guid: 3f4d5a23704b62042b73883a574481dd, type: 2}
+  - {fileID: 11400000, guid: 8e2d12f7b4947fa4aa522453999a4594, type: 2}
   renderer: {fileID: 0}
   _visualExamManager: {fileID: 7223126770840005377}
+  _timer: {fileID: 0}
+  timerDuration: 120
 --- !u!114 &8697653809226824820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,7 +1307,9 @@ MonoBehaviour:
   _diceManager: {fileID: 8697653809226824820}
   _examManager: {fileID: 8697653809226824818}
   _nameGenerator: {fileID: 5138717239274755126}
+  _currencyManager: {fileID: 0}
   MaxSchoolWeeks: 3
+  MaxExams: 10
 --- !u!114 &7223126770840005377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,8 +1338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36701302f6a27345b8ae8fd8cceb90a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstNames: []
-  lastNames: []
+  firstNames:
+  - Hans
+  lastNames:
+  - "M\xFCller"
 --- !u!1 &9140362761422891105
 GameObject:
   m_ObjectHideFlags: 0
