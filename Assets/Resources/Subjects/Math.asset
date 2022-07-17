@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856a92afe23c4da689ca3c66ce18b561, type: 3}
+  m_Name: Math
+  m_EditorClassIdentifier: 
+  name: Mathmathics
+  color: {r: 0, g: 0.1387968, b: 1, a: 0}
+  _tasks:
+  - {fileID: 11400000, guid: a5a50964ff2081541891f32f2bdb2daa, type: 2}
+  - {fileID: 11400000, guid: 31d0058e3429a7c4b8f6407c9cab7138, type: 2}
+  - {fileID: 11400000, guid: 268c96e3de8d77e4b8ccb90dc2b98daf, type: 2}
+  - {fileID: 11400000, guid: 95fcd15e4b5d0d448879da37a43ce429, type: 2}
+  - {fileID: 11400000, guid: 9bd9f78eb7726894189b7d474382f8e2, type: 2}
+  - {fileID: 11400000, guid: 6cafde6d711af39419717c66eb1be724, type: 2}
+  - {fileID: 11400000, guid: 53701f3e66e42bb4faaf33ab73b5ad3f, type: 2}
+  - {fileID: 11400000, guid: b1cf7e0b2a4da4f4193bad8247d90148, type: 2}
+  - {fileID: 11400000, guid: 7603eae18935f2c4893d95adfb60d759, type: 2}
+  - {fileID: 11400000, guid: 91e55a8bdb534f44892281f3f3c108fd, type: 2}
+  - {fileID: 11400000, guid: c8ec7eb98ea17bc4cbbab442c076b14b, type: 2}
+  - {fileID: 11400000, guid: e85dc79f3c276b846a36e4172f984546, type: 2}
+  - {fileID: 11400000, guid: 01545c431be6ce046bac423ecef27e91, type: 2}
+  - {fileID: 11400000, guid: 75dcca9e9d8be434c85f39c79db0a42b, type: 2}
+  - {fileID: 11400000, guid: 3d8b1076783fcc64a973b60ea3caa3dd, type: 2}
+  - {fileID: 11400000, guid: 754cf9a86c6148e4bb959d542b77a006, type: 2}
+  - {fileID: 11400000, guid: 88f58999dc01ece4ba203c23b5f2ab59, type: 2}
+  - {fileID: 11400000, guid: 95a87a109230189409201fd18390ad18, type: 2}
+  - {fileID: 11400000, guid: 9a62aa5ec257ad947a29b85e0bd559a6, type: 2}
+  - {fileID: 11400000, guid: c6b8c5971668db84886548bd5540f5bd, type: 2}

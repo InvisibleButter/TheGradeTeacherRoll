@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952719d630aa4e1da88b6b159bfa26c6, type: 3}
+  m_Name: Physics_2
+  m_EditorClassIdentifier: 
+  question: What does Newton's second law of motivation state?
+  correct:
+  - A body's rate of change of momentum is proportional to the force causing it.
+  wrong:
+  - A body remains at rest or in uniform motion in a straight line unless acted upon
+    by a force.
+  - When a force acts on a body due to another body, then an equal and opposite force
+    acts simultaneously on that body.
+  geniusSCore: 70
