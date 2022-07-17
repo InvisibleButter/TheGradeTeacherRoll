@@ -11,6 +11,7 @@ public class SingeLineTaskViewModel : TaskViewModel
         base.Setup(exam, task);
 
         AnswerTxt.text = task.Answers[0];
+        AnswerTxt.font = exam.AnswerFont;
         QuestionTxt.text = task.Question;
     }
 }
